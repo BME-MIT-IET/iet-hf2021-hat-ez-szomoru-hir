@@ -4,9 +4,12 @@ A SonarLint álltal jelzett hibák fájlonként:
 
 ## Beans.java:
 
-* Remove unused import: Egy nem használt import maradt a fájlban.
-* Hiba megoldása: eltávolítottam a felesleges importot.
+* Hiba: Egy nem használt import maradt a fájlban.
+	* Javítás: eltávolítottam a felesleges importot.
 	![](MCR_assets/import.png)
+* Hibák: A.class.isInstance()-t használ az instanceof operátor helyett
+	* Javítás: Minden helyen átírtam a kódot, hogy instanceof operátort használjon.
+	  ![](MCR_assets/instanceof.png)
 
 ## UUIDCodec.java:
 
