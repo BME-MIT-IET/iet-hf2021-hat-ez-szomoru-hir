@@ -64,9 +64,26 @@ dependencies {
 	compile "org.slf4j:slf4j-jdk14:1.7.7"
 
 	testCompile 'junit:junit:4.11'
-	testCompile 'io.cucumber:cucumber-java:6.1.1'
+	testCompile 'io.cucumber:cucumber-java:6.8.1'
+}
+
+configurations {
+	cucumberRuntime {
+		extendsFrom testRuntime
+	}
 }
 
 tasks.withType(Test) {
 	systemProperties = System.getProperties()
+}
+
+task cucumber() {
+	dependsOn assemble, testClasses
+	doLast {
+		javaexec {
+			main = "io.cucumber.core.cli.Main"
+			classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+			args = ['--plugin', 'pretty', '--glue', 'com.complexible.pinto', 'test/resources']
+		}
+	}
 }
