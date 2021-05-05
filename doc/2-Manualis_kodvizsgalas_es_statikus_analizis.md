@@ -9,7 +9,10 @@ A SonarLint álltal jelzett hibák fájlonként:
 	![](MCR_assets/import.png)
 * Hibák: A.class.isInstance()-t használ az instanceof operátor helyett
 	* Javítás: Minden helyen átírtam a kódot, hogy instanceof operátort használjon.
-	  ![](MCR_assets/instanceof.png)
+	![](MCR_assets/instanceof.png)
+* Hiba: Generikus típust használ parametrizált típus nélkül
+  	* Javítás: Class helyett Class<Object> használata.
+  	![](MCR_assets/generic.png)
 
 ## UUIDCodec.java:
 
