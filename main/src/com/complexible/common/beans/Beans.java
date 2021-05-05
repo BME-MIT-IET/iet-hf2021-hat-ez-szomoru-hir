@@ -45,7 +45,7 @@ public final class Beans {
 		return (Boolean.class.isInstance(theObj) || Integer.class.isInstance(theObj) || Long.class.isInstance(theObj)
 		        || Short.class.isInstance(theObj) || Double.class.isInstance(theObj) || Float.class.isInstance(theObj)
 		        || Date.class.isInstance(theObj) || String.class.isInstance(theObj) || Character.class.isInstance(theObj)
-		        || java.net.URI.class.isInstance(theObj) );
+		        || java.net.URI.class.isInstance(theObj));
 	}
 
 	/**
