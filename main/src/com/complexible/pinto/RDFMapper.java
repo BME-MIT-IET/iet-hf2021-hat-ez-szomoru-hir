@@ -777,28 +777,28 @@ public final class RDFMapper {
 
 			return mValueFactory.createLiteral(theObj.toString(), aURI);
 		}
-		else if (Boolean.class.isInstance(theObj)) {
+		else if (theObj instanceof Boolean) {
 			return mValueFactory.createLiteral(Boolean.class.cast(theObj));
 		}
-		else if (Integer.class.isInstance(theObj)) {
+		else if (theObj instanceof Integer) {
 			return mValueFactory.createLiteral(Integer.class.cast(theObj).intValue());
 		}
-		else if (Long.class.isInstance(theObj)) {
+		else if (theObj instanceof Long) {
 			return mValueFactory.createLiteral(Long.class.cast(theObj).longValue());
 		}
-		else if (Short.class.isInstance(theObj)) {
+		else if (theObj instanceof Short) {
 			return mValueFactory.createLiteral(Short.class.cast(theObj).shortValue());
 		}
-		else if (Double.class.isInstance(theObj)) {
+		else if (theObj instanceof Double) {
 			return mValueFactory.createLiteral(Double.class.cast(theObj));
 		}
-		else if (Float.class.isInstance(theObj)) {
+		else if (theObj instanceof Float) {
 			return mValueFactory.createLiteral(Float.class.cast(theObj).floatValue());
 		}
-		else if (Date.class.isInstance(theObj)) {
+		else if (theObj instanceof Date) {
 			return mValueFactory.createLiteral(Dates2.datetimeISO(Date.class.cast(theObj)), XMLSchema.DATETIME);
 		}
-		else if (String.class.isInstance(theObj)) {
+		else if (theObj instanceof String) {
 			if (theAnnotation != null && !theAnnotation.language().equals("")) {
 				return mValueFactory.createLiteral(String.class.cast(theObj), theAnnotation.language());
 			}
@@ -806,10 +806,10 @@ public final class RDFMapper {
 				return mValueFactory.createLiteral(String.class.cast(theObj), XMLSchema.STRING);
 			}
 		}
-		else if (Character.class.isInstance(theObj)) {
+		else if (theObj instanceof Character) {
 			return mValueFactory.createLiteral(String.valueOf(Character.class.cast(theObj)), XMLSchema.STRING);
 		}
-		else if (java.net.URI.class.isInstance(theObj)) {
+		else if (theObj instanceof java.net.URI) {
 			return mValueFactory.createLiteral(theObj.toString(), XMLSchema.ANYURI);
 		}
 
