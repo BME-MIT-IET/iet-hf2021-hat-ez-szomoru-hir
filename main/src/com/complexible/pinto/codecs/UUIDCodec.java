@@ -36,7 +36,7 @@ import java.util.UUID;
  * @version 2.0
  */
 public enum UUIDCodec implements RDFCodec<UUID> {
-	Instance;
+	INSTANCE;
 
 	public static final IRI TYPE = SimpleValueFactory.getInstance().createIRI("tag:java.util.UUID");
 	public static final IRI PROPERTY = SimpleValueFactory.getInstance().createIRI("tag:java.util.UUID:uuid");
