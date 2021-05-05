@@ -19,6 +19,8 @@ import com.complexible.common.base.Options;
 import com.complexible.pinto.annotations.RdfId;
 import com.complexible.pinto.annotations.RdfProperty;
 
+import java.util.Collection;
+
 /**
  * <p>Set of options for controlling some aspects of mapping beans to RDF.</p>
  *
