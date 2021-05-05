@@ -64,6 +64,7 @@ dependencies {
 	compile "org.slf4j:slf4j-jdk14:1.7.7"
 
 	testCompile 'junit:junit:4.11'
+	testCompile 'io.cucumber:cucumber-java:6.1.1'
 }
 
 tasks.withType(Test) {
