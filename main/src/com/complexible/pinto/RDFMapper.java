@@ -85,6 +85,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
+
 /**
  * <p>Mapper for turning Java beans into RDF and RDF into Java beans.</p>
  *
