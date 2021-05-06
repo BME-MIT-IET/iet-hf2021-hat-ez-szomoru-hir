@@ -9,6 +9,11 @@ task hozzáadása a gradle-höz:
 
 ### Read primitives from graph
 
+Ellenőrzi az olyan gráf beolvasását amely primitíveket tartalmaz.
+
+Ehhez létre kellett hozni egy konvertálót ami a DataTable-ből egy ClassWithPrimitives példányt hoz létre:
+<img src="D:\BME_sajat\6\IET\iet-hf2021-hat-ez-szomoru-hir\doc\BDD_assets\class_primitive_datatabletype.png" style="zoom:67%;" />
+
 Teszt leírása a .feature fájlban:
 <img src="bdd_assets/read_primitives_feature.png" style="zoom:67%;" />
 
