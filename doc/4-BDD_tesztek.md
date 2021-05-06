@@ -12,25 +12,25 @@ task hozzáadása a gradle-höz:
 Ellenőrzi az olyan gráf beolvasását amely primitíveket tartalmaz.
 
 Ehhez létre kellett hozni egy konvertálót ami a DataTable-ből egy ClassWithPrimitives példányt hoz létre:
-<img src="D:\BME_sajat\6\IET\iet-hf2021-hat-ez-szomoru-hir\doc\BDD_assets\class_primitive_datatabletype.png" style="zoom:67%;" />
+<img src="BDD_assets/class_primitive_datatabletype.png" style="zoom:67%;" />
 
 Teszt leírása a .feature fájlban:
-<img src="bdd_assets/read_primitives_feature.png" style="zoom:67%;" />
+<img src="BDD_assets/read_primitives_feature.png" style="zoom:67%;" />
 
 Step definitions:
-<img src="bdd_assets/read_primitives_steps.png" style="zoom:67%;" />
+<img src="BDD_assets/read_primitives_steps.png" style="zoom:67%;" />
 
 Sikeres lefutás:
-<img src="bdd_assets/read_primitives_test.png" style="zoom:67%;" />
+<img src="BDD_assets/read_primitives_test.png" style="zoom:67%;" />
 
 ### Read lists of primitives from graph
 
 Ellenőrzi az olyan gráf beolvasását amely primitívekből álló listákat tartalmaz.
 
 Az előző teszthez hasonlóan létrehoztam egy új konvertáló függvényt a ClassWithPrimitiveLists osztályhoz:
-<img src="D:\BME_sajat\6\IET\iet-hf2021-hat-ez-szomoru-hir\doc\BDD_assets\class_primitivelists_datatabletype.png" style="zoom:67%;" />
+<img BDD_assets\class_primitivelists_datatabletype.png" style="zoom:67%;" />
 
 Teszt leírása a .feature fájlban:
-<img src="D:\BME_sajat\6\IET\iet-hf2021-hat-ez-szomoru-hir\doc\BDD_assets\read_lists_primitives_feature.png" style="zoom:67%;" />
+<img src="BDD_assets/read_lists_primitives_feature.png" style="zoom:67%;" />
 
 A lépések leírása hasonló az előző teszthez.
