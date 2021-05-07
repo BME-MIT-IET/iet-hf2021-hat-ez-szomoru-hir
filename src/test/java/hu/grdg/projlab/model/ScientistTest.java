@@ -8,10 +8,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class ScientistTest {
 
     Scientist scientist;
+    IceTile tile;
 
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
         scientist = new Scientist(null);
+        tile = new IceTile();
+        scientist.setCurrentTile(tile);
+        tile.acceptEntity(scientist);
     }
 
     @org.junit.jupiter.api.AfterEach
