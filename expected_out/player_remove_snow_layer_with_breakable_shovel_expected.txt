@@ -1,0 +1,7 @@
+Tile created
+Scientist created
+Item added. Slot: 1
+Snow layer added
+IceTile stat: [frozenItem: null,entities: [hu.grdg.projlab.model.Scientist@d7b1517],snowLayers: 1,neighbours: {},hasTent: false,hasIgloo: false]
+Item used
+IceTile stat: [frozenItem: null,entities: [hu.grdg.projlab.model.Scientist@d7b1517],snowLayers: 0,neighbours: {},hasTent: false,hasIgloo: false]
