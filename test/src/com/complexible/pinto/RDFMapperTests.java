@@ -718,7 +718,7 @@ public class RDFMapperTests {
 	public void testWriteWithCodec() throws Exception {
 
 		final Model aGraph = RDFMapper.builder()
-		                              .codec(UUID.class, UUIDCodec.Instance)
+		                              .codec(UUID.class, UUIDCodec.INSTANCE)
 		                              .build()
 		                              .writeValue(UUID.fromString("0110f311-964b-440d-b772-92c621c5d1e4"));
 
@@ -731,7 +731,7 @@ public class RDFMapperTests {
 		final Model aGraph = ModelIO.read(Files3.classPath("/data/uuid.nt").toPath());
 
 		final UUID aResult = RDFMapper.builder()
-				                              .codec(UUID.class, UUIDCodec.Instance)
+				                              .codec(UUID.class, UUIDCodec.INSTANCE)
 				                              .build()
 				                              .readValue(aGraph, UUID.class);
 
