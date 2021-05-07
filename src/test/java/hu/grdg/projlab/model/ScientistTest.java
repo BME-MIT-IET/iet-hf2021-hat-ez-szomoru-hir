@@ -7,8 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class ScientistTest {
 
+    Scientist scientist;
+
     @org.junit.jupiter.api.BeforeEach
     void setUp() {
+        scientist = new Scientist(null);
     }
 
     @org.junit.jupiter.api.AfterEach
@@ -16,12 +19,12 @@ class ScientistTest {
     }
 
     @org.junit.jupiter.api.Test
-    void specialAbility() {
+    void whenNotOnTileSpecialAbilityDoesntWork() {
+        assertFalse(scientist.specialAbility());
     }
 
     @Test
     void takingDamageReducesBodyTemperature() {
-        var scientist = new Scientist(null);
         int originalTemperature = scientist.getTemp();
         scientist.damage(1);
 
