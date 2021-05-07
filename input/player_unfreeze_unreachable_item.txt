@@ -1,5 +1,0 @@
-NewTile i1 i
-Eskimo e1 i1
-Item Rope i1
-PutSnow i1 2
-Unfreeze e1

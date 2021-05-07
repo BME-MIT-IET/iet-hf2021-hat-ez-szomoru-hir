@@ -1,4 +1,0 @@
-NewTile i1 i
-Scientist s1 i1
-Eskimo e1 i1
-SnowStorm i1 2

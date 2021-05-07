@@ -1,8 +1,0 @@
-Tile created
-Scientist created
-Scientist created
-Scientist created
-Item added. Slot: 1
-Item added. Slot: 1
-Item added. Slot: 1
-Item used. Game ended with a win.

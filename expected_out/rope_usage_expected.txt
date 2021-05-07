@@ -1,9 +1,0 @@
-Tile created
-Tile created
-Neighbours updated
-Scientist created
-Scientist created
-Fall in hole
-Item added. Slot: 1
-Stepped to tile
-Item used
