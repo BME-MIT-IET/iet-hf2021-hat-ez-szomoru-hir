@@ -1,5 +1,3 @@
-IET házi
 
-Halihó ez itt a mi házink 
+# IET házi
 
-hg
