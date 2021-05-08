@@ -26,4 +26,9 @@ class EskimoTest {
 
         assertEquals(originalTemperature - 2, eskimo.getTemp());
     }
+
+    @Test
+    void whenUsingSpecialAbilityOnTileWithoutIglooItSucceeds() {
+        assertTrue(eskimo.specialAbility());
+    }
 }
