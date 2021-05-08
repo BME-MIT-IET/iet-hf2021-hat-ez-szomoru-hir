@@ -28,6 +28,20 @@ class ScientistTest {
     }
 
     @Test
+    void whenTheresANeighbourTileScientistCanUseSpecialAbility() {
+        var neighbourTileNorth = new IceTile();
+        tile.setNeighbour(neighbourTileNorth, 0);
+        var neighbourTileEast = new IceTile();
+        tile.setNeighbour(neighbourTileEast, 1);
+        var neighbourTileSouth = new IceTile();
+        tile.setNeighbour(neighbourTileSouth, 2);
+        var neighbourTileWest = new IceTile();
+        tile.setNeighbour(neighbourTileWest, 3);
+
+        assertTrue(scientist.specialAbility());
+    }
+
+    @Test
     void takingDamageReducesBodyTemperature() {
         int originalTemperature = scientist.getTemp();
         scientist.damage(1);
