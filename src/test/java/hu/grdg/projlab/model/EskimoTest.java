@@ -31,4 +31,10 @@ class EskimoTest {
     void whenUsingSpecialAbilityOnTileWithoutIglooItSucceeds() {
         assertTrue(eskimo.specialAbility());
     }
+
+    @Test
+    void whenUsingSpecialAbilityOnTileWithIglooItFails() {
+        tile.buildIgloo();
+        assertFalse(eskimo.specialAbility());
+    }
 }
