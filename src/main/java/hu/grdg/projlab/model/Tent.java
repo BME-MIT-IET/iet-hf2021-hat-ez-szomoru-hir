@@ -1,10 +1,7 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.gui.ItemRenderer;
-import hu.grdg.projlab.gui.render.TentRenderer;
-
+//Ez nincs a doksiban xD
 public class Tent extends Item {
-    private static TentRenderer renderer = new TentRenderer();
     private int life;
 
     /**
@@ -20,18 +17,8 @@ public class Tent extends Item {
         boolean res = tile.buildTent();
         if(res) {
             RemoveTent.getInstance().addTent(this);
-            owner.getInventory().remove(this);
         }
         return res;
-    }
-
-    /**
-     *Returns the renderer of the Tent
-     * @return renderer attribute
-     */
-    @Override
-    public ItemRenderer getRenderer() {
-        return renderer;
     }
 
     /**Csökkenti eggyel a sátor élettartamát
@@ -46,7 +33,8 @@ public class Tent extends Item {
         }
     }
 
-    /** Beállítja a paraméterként kapott értékre a sátor élettartamát
+    /**EZ MÉG NEM SZEREPELT DOKSIBAN!
+     * Beállítja a paraméterként kapott értékre a sátor élettartamát
      * @param life
      * @author Dani
      */

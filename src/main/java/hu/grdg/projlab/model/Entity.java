@@ -1,7 +1,5 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.gui.EntityRenderer;
-
 public abstract class Entity {
     protected Tile currentTile;
 
@@ -14,7 +12,7 @@ public abstract class Entity {
         return currentTile;
     }
 
-    public abstract boolean move(int direction);
+    public abstract void move(int direction);
 
     public abstract void damage(int i);
 
@@ -32,7 +30,5 @@ public abstract class Entity {
     }
 
     public abstract boolean savedFromWater(Tile t);
-
-    public abstract EntityRenderer getRenderer();
 
 }

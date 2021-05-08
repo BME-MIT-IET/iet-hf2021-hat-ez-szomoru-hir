@@ -1,28 +1,17 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.debug.DebugSettings;
+import hu.grdg.projlab.ProtoIO;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * Olyan Entity, amit a felhasználó tud irányítani
- */
 public abstract class Player extends Entity{
-    //tárolja a max életét
     protected int maxTemp;
-    //tárolja a felvett item-eket
     private ArrayList<Item> inventory;
-    //ismeri a controllert
     private Controller controller;
-    //tárolja az aktuális életét
     private int currentTemp;
-    //tudja, hogy vízben van-e vagy nem
-    protected boolean isInWater;
-    //tudja, hogy ő-e a soron levő játékos vagy nem
-    private boolean active = false;
+    private boolean isInWater;
 
 
     /**
@@ -38,6 +27,10 @@ public abstract class Player extends Entity{
         this.controller = controller;
     }
 
+    //----------------WARNING-----------------
+    //NOT IN DOCS
+    //TODO Fix the doc
+
     /**
      * Returns the Entity's inventory
      * @return the Entity's inventory
@@ -46,6 +39,11 @@ public abstract class Player extends Entity{
     public List<Item> getInventory() {
         return inventory;
     }
+
+    //----------------WARNING----------------
+    //CHANGED ARG FROM VOID TO INT
+    //@returns The index of the added item
+    //TODO Fix doc
 
     /**
      * Add new item to the inventory
@@ -58,38 +56,7 @@ public abstract class Player extends Entity{
         return inventory.size();
     }
 
-    /**
-     * Returns if the Player is the active player
-     * @return true of the player is active
-     * @author Barrow099
-     */
-    public boolean isActive() {
-        return active;
-    }
-
-
-    private boolean wasInWater = false;
-
-    /**
-     * Sets the active attribute to the given value
-     * @param a active value
-     * @author Barrow099
-     */
-    public void setActive(boolean a) {
-        if(active == a)
-            return;
-
-        if(wasInWater && !a && isInWater)
-            die();
-
-        if(!a)
-            wasInWater = isInWater;
-
-        this.active = a;
-        //Trigger tile redraw
-        currentTile.updateEvent();
-    }
-
+    //----------------NOT IN DOC-----------
     /**
      * Sets the current temp
      * @param currentTemp The current temp
@@ -98,6 +65,8 @@ public abstract class Player extends Entity{
         this.currentTemp = currentTemp;
     }
 
+    //----------WARNING-------------
+    //IMPLEMENTATION HAS TO PRINT THE OUTPUT MESSAGE
     public abstract boolean specialAbility();
 
     /**
@@ -136,14 +105,11 @@ public abstract class Player extends Entity{
      * @author Dorina
      */
     @Override
-    public boolean move(int direction) {
-        if(isInWater) return false;
+    public void move(int direction) {
+        if(isInWater) return;
         Tile newTile = currentTile.getNeighbour(direction);
-        if(newTile == null)
-            return false;
         currentTile.removeEntity(this);
         newTile.acceptEntity(this);
-        return true;
     }
 
     /**
@@ -154,7 +120,7 @@ public abstract class Player extends Entity{
     @Override
     public void damage(int i) {
         currentTemp -= i;
-        JOptionPane.showMessageDialog(null,"Player damaged","Oops", JOptionPane.WARNING_MESSAGE);
+        ProtoIO.output(ProtoIO.OutputMessages.SNOWSTORM_OUT_PLAYERDAMAGE);
         if(currentTemp<=0) die();
     }
 
@@ -164,6 +130,7 @@ public abstract class Player extends Entity{
      */
     @Override
     public void die() {
+        ProtoIO.output(ProtoIO.OutputMessages.SNOWSTORM_OUT_PLAYERDIE);
         controller.endGame(false);
     }
 
@@ -173,12 +140,7 @@ public abstract class Player extends Entity{
      */
     @Override
     public void fallInWater() {
-        //Disable water damage for debug purposes
-        if(DebugSettings.DEBUG_NO_WATER_DAMAGE)
-            return;
-
         isInWater = true;
-        JOptionPane.showMessageDialog(null, "You fell in a hole","OOPS", JOptionPane.WARNING_MESSAGE);
     }
 
     /**
@@ -188,11 +150,11 @@ public abstract class Player extends Entity{
     public boolean surviveWater(){
         if(isInWater) {
             isInWater = false;
-            wasInWater = false;
             return true;
         }
         return false;
     }
+
 
     /**
      * Save the entity from drowning
@@ -210,22 +172,6 @@ public abstract class Player extends Entity{
         return false;
     }
 
-    /**
-     * Returns the temperature of the Player
-     * @return currentTemp attribute
-     * @author Dorina
-     */
-    public int getTemp() {
-        return currentTemp;
-    }
 
-    /**
-     * Returns the maximum temperature of the player
-     * @return maxTemp attribute
-     * @author Dorina
-     */
-    public int getMaxTemp(){
-        return maxTemp;
-    }
 
 }

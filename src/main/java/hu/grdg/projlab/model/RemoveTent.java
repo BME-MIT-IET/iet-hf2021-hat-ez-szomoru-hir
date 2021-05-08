@@ -17,7 +17,7 @@ public class RemoveTent implements TurnBasedEvent{
      * @param fullTurn akkor true, ha egy teljes kör telt le (ehhez lényegtelen)
      */
     public void doEvent(Level lvl, boolean fullTurn) {
-        for (Tent tent : new ArrayList<>(tents)) {
+        for (Tent tent : tents) {
             tent.decreaseLife();
         }
     }
@@ -28,6 +28,8 @@ public class RemoveTent implements TurnBasedEvent{
      * @author Dani
      */
     public static RemoveTent getInstance() {
+        if (singleton == null)
+            singleton = new RemoveTent();
         return singleton;
     }
 
@@ -38,7 +40,7 @@ public class RemoveTent implements TurnBasedEvent{
      */
     void addTent(Tent tent) {
         singleton.tents.add(tent);
-        tent.setLife(Controller.getNumOfPlayers());
+        tent.setLife(3); //FIXME: meg kéne kapnia a controller-től a játékosok számát!
     }
 
     /**

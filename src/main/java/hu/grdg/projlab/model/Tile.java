@@ -1,11 +1,12 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.debug.DebugSettings;
-import hu.grdg.projlab.gui.TileRenderer;
+import hu.grdg.projlab.Proto;
+import hu.grdg.projlab.ProtoIO;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Random;
 
 public abstract class Tile {
     private boolean hasIgloo;
@@ -14,7 +15,6 @@ public abstract class Tile {
     private Item frozenItem;
     private HashMap<Integer,Tile> neighbours;
     protected ArrayList<Entity> entities;
-    private ArrayList<Runnable> tileUpdateListeners = new ArrayList<>();
 
     public Tile(){
         neighbours= new HashMap<Integer, Tile>();
@@ -47,7 +47,7 @@ public abstract class Tile {
      * @author Dorina
      */
     public Item getFrozenItem() {
-        if(snowLayers == 0 || DebugSettings.DEBUG_SHOW_ALL_ITEMS)
+        if(snowLayers == 0)
             return frozenItem;
         return null;
     }
@@ -61,7 +61,6 @@ public abstract class Tile {
     public boolean removeSnowLayer(int amount) {
         if(snowLayers==0) return false;
         snowLayers = (snowLayers<=amount) ? 0 : (snowLayers-amount);
-        updateEvent();
         return true;
     }
 
@@ -70,10 +69,10 @@ public abstract class Tile {
      * @param entity the Entity who steps on the Tile
      * @author Dorina
      */
+    //--------THE TILE HAVE TO PRINT THE STEP_OUT_MESSAGE BASED ON TILE----------
     public void acceptEntity(Entity entity) {
         entity.setCurrentTile(this);
         entities.add(entity);
-        updateEvent();
     }
 
     /**
@@ -84,12 +83,6 @@ public abstract class Tile {
     public boolean setFrozenItem(Item item) {
         if(frozenItem==null){
             frozenItem = item;
-            updateEvent();
-            return true;
-        }
-        if(item == null) {
-            frozenItem = null;
-            updateEvent();
             return true;
         }
         return false;
@@ -102,7 +95,6 @@ public abstract class Tile {
      */
     public void addSnowLayer(int amount) {
         snowLayers += amount;
-        updateEvent();
     }
 
     /**
@@ -112,7 +104,6 @@ public abstract class Tile {
      */
     public void removeEntity(Entity entity) {
         entities.remove(entity);
-        updateEvent();
     }
 
     /**
@@ -123,7 +114,6 @@ public abstract class Tile {
     public boolean buildIgloo(){
         if(hasIgloo) return false;
         hasIgloo=true;
-        updateEvent();
         return true;
     }
 
@@ -135,9 +125,7 @@ public abstract class Tile {
      */
     public boolean pickupItem(Player player){
         if(snowLayers>0 || frozenItem==null) return false;
-        updateEvent();
         return frozenItem.pickedUp(player);
-
     }
 
     /**
@@ -159,7 +147,11 @@ public abstract class Tile {
     public void bearAttack(){
         if(!hasIgloo){
             for (Entity e: entities) {
+                //FIXME Fix with custom method in entity
+                if(e instanceof Player) {
+                    ProtoIO.output(ProtoIO.OutputMessages.STEP_BEAR_EAT);
                     e.die();
+                }
             }
         }
     }
@@ -167,7 +159,7 @@ public abstract class Tile {
     public abstract int scanLimit();
 
     /**
-     *Return the entitites
+     *
      * @return the entities on the Tile
      * @author Dorina
      */
@@ -176,7 +168,6 @@ public abstract class Tile {
     }
 
     /**
-     * Return the neighbours of the Tile
      * @return all the neighbours
      * @author Dorina
      */
@@ -203,46 +194,5 @@ public abstract class Tile {
         hasTent=false;
     }
 
-    /**
-     * Returns the associated tile renderer for this tile
-     * @return The renderer
-     */
-    public abstract TileRenderer getRenderer();
-
-    /**
-     * Gets the number of snow layers on the tile
-     * @return The number of snow layers
-     */
-    public int getSnowLayers() {
-        return snowLayers;
-    }
-
-    /**
-     * Return if the Tile has an igloo
-     * @return true if Tile has igloo
-     * @author Dorina
-     */
-    public boolean hasIgloo() {
-        return hasIgloo;
-    }
-
-    /**
-     * Return if the Tile has a Tent
-     * @return true if Tile has tent
-     * @author Dorina
-     */
-    public boolean hasTent() {
-        return hasTent;
-    }
-
-    public void addOnUpdateListener(Runnable listener) {
-        tileUpdateListeners.add(listener);
-    }
-
-    public void updateEvent() {
-        for (Runnable tileUpdateListener : this.tileUpdateListeners) {
-            tileUpdateListener.run();
-        }
-    }
 }
 

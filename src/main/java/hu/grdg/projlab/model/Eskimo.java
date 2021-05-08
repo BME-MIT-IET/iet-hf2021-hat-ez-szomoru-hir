@@ -1,14 +1,9 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.gui.EntityRenderer;
-import hu.grdg.projlab.gui.render.EskimoRenderer;
+import hu.grdg.projlab.ProtoIO;
 
-/**
- * Eskimo osztály, playerből származik
- */
 public class Eskimo extends Player{
-    //tárolja a hozzátartozó renderert
-    private EntityRenderer renderer = new EskimoRenderer(this);
+
     /**
      * Sets the maximum temperature in player's constructor
      * @author Geri
@@ -23,21 +18,12 @@ public class Eskimo extends Player{
      * @author Geri
      */
     public boolean specialAbility(){
-        if(isInWater)
-            return false;
+
         boolean succesfulness = getCurrentTile().buildIgloo();
         if(succesfulness){
+            ProtoIO.output(ProtoIO.OutputMessages.SPECAB_OUT_ESKIMO);
             return true;
         }
         return false;
-    }
-
-    /**
-     * Returns the renderer of the Eskimo
-     * @return renderer attribute
-     */
-    @Override
-    public EntityRenderer getRenderer() {
-        return renderer;
     }
 }

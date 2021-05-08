@@ -1,10 +1,6 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.gui.EntityRenderer;
-import hu.grdg.projlab.gui.render.PolarBearRenderer;
-
 public class PolarBear extends Entity{
-    private PolarBearRenderer renderer = new PolarBearRenderer();
 
     /**
      * Steps in given direction
@@ -12,13 +8,12 @@ public class PolarBear extends Entity{
      * @author Geri
      */
     @Override
-    public boolean move(int direction) {
+    public void move(int direction) {
         Tile stepTile = currentTile.getNeighbour(direction);
-        if(stepTile==null) return false;
         currentTile.removeEntity(this);
+
         stepTile.acceptEntity(this);
         stepTile.bearAttack();
-        return true;
     }
 
     /**
@@ -58,15 +53,5 @@ public class PolarBear extends Entity{
     @Override
     public boolean savedFromWater(Tile t) {
         return false;
-    }
-
-    /**
-     * Returns the renderer of the polarbear
-     * @return the renderer
-     * @author Dorina
-     */
-    @Override
-    public EntityRenderer getRenderer() {
-        return renderer;
     }
 }

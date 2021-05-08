@@ -1,15 +1,11 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.gui.TileRenderer;
-import hu.grdg.projlab.gui.render.TileRendererImpl;
+import hu.grdg.projlab.Proto;
+import hu.grdg.projlab.ProtoIO;
 
-/**
- * Olyan tile, ami a rálépő entityket vízbe teszi
- * Tileból származik
- */
 public class HoleTile extends Tile{
-    //tárolja a hozzátartozó renderert
-    private static TileRenderer renderer = new TileRendererImpl(true);
+
+
     /**
      * Scans the limit of the tile
      * @return 0
@@ -29,9 +25,8 @@ public class HoleTile extends Tile{
     public void acceptEntity(Entity entity) {
         super.acceptEntity(entity);
         entity.fallInWater();
-        removeSnowLayer(getSnowLayers());
+        ProtoIO.output(ProtoIO.OutputMessages.STEP_OUT_HOLE);
         entity.setCurrentTile(this);
-        updateEvent();
     }
 
     /**
@@ -53,14 +48,5 @@ public class HoleTile extends Tile{
     @Override
     public boolean buildIgloo() {
         return false;
-    }
-
-    /**
-     * Returns the renderer of the HoleTile
-     * @return renderer attribute
-     */
-    @Override
-    public TileRenderer getRenderer() {
-        return renderer;
     }
 }
