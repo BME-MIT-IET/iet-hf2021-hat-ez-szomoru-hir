@@ -1,6 +1,7 @@
 package hu.grdg.projlab.model;
 
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,5 +16,14 @@ class EskimoTest {
         tile = new IceTile();
         eskimo.setCurrentTile(tile);
         tile.acceptEntity(eskimo);
+    }
+
+    @Test
+    void takingDamageLowersEskimosBodyTemperature() {
+        int originalTemperature = eskimo.getTemp();
+
+        eskimo.damage(2);
+
+        assertEquals(originalTemperature - 2, eskimo.getTemp());
     }
 }
