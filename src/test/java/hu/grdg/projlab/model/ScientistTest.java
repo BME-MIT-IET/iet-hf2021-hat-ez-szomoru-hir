@@ -25,7 +25,7 @@ class ScientistTest {
     }
 
     @Test
-    void whenNotOnTileSpecialAbilityDoesntWork() {
+    void withoutNeighbourTileScientistSpecialAbilityDoesntWork() {
         assertFalse(scientist.specialAbility());
     }
 
