@@ -42,6 +42,8 @@ public class ItemCommand extends Command {
             case "RocketPart":
                 itm = new RocketPart(state.getController());
                 break;
+            default:
+                break;
         }
         t.setFrozenItem(itm);
         ProtoIO.output(ProtoIO.OutputMessages.ITEM_OUT);
