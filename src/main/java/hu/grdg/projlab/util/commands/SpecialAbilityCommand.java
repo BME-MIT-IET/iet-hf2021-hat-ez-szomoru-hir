@@ -19,7 +19,7 @@ public class SpecialAbilityCommand extends Command {
         String pName = getStringArg(inputParams);
 
         int dir = 0;
-        if(inputParams.size() > 0 && !inputParams.get(0).equals("null"))
+        if(!inputParams.isEmpty() && !inputParams.get(0).equals("null"))
           dir = getIntArg(inputParams);
 
         Player p;
