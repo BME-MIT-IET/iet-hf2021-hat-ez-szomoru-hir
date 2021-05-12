@@ -1,9 +1,7 @@
 package hu.grdg.projlab.util.commands;
 
 import hu.grdg.projlab.ProtoIO;
-import hu.grdg.projlab.model.Eskimo;
 import hu.grdg.projlab.model.PolarBear;
-import hu.grdg.projlab.model.PolarBearStep;
 import hu.grdg.projlab.model.Tile;
 import hu.grdg.projlab.util.Command;
 import hu.grdg.projlab.util.CommandException;
