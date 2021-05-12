@@ -1,6 +1,6 @@
 package hu.grdg.projlab.util.commands;
 
-import hu.grdg.projlab.Proto;
+
 import hu.grdg.projlab.ProtoIO;
 import hu.grdg.projlab.model.HoleTile;
 import hu.grdg.projlab.model.IceTile;
@@ -34,7 +34,9 @@ public class NewTileCommand extends Command {
                 break;
             case "i":
                 state.addTile(tileName, new IceTile());
-
+                break;
+            default:
+                break;
         }
         ProtoIO.output(ProtoIO.OutputMessages.NEWTILE_OUT);
     }
