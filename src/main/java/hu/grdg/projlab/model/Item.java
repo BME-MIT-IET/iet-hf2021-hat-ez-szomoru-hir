@@ -4,11 +4,6 @@ public abstract class Item {
     protected boolean isFrozen = true;
     protected Player owner;
 
-
-
-    //----------WARNING-------------
-    //NOT IN DOCS
-    //TODO Add to docs
     //FIXME
     public boolean isFrozen() {
         return false;
