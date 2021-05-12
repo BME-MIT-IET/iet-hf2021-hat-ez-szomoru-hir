@@ -17,7 +17,7 @@ public class UseItemCommand extends Command {
         int slot = getIntArg(inputParams);
 
         int arg = -1;
-        if(inputParams.size() > 0 && !inputParams.get(0).equals("null"))
+        if(!inputParams.isEmpty() && !inputParams.get(0).equals("null"))
             arg = getIntArg(inputParams);
 
         Player p;
