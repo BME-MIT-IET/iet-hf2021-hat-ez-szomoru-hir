@@ -20,7 +20,6 @@ public class Controller {
         rocketParts = new ArrayList<RocketPart>();
     }
 
-    //TODO docs
     public void addPlayer(Player p){
         players.add(p);
     }
