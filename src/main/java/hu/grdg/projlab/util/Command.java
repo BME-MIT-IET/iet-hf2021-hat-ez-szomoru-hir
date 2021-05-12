@@ -1,6 +1,5 @@
 package hu.grdg.projlab.util;
 
-import hu.grdg.projlab.ProtoIO;
 import hu.grdg.projlab.model.Entity;
 import hu.grdg.projlab.model.Player;
 
