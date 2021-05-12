@@ -19,9 +19,9 @@ public abstract class Player extends Entity{
      * @param _maxTemp Maximum temperature
      * @author Geri, Dorina
      */
-    public Player(int _maxTemp, Controller controller){
+    public Player(int maxTemp, Controller controller){
         inventory = new ArrayList<Item>();
-        maxTemp = _maxTemp;
+        this.maxTemp = maxTemp;
         currentTemp = maxTemp;
         isInWater = false;
         this.controller = controller;
