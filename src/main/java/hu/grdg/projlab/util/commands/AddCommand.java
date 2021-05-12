@@ -43,6 +43,8 @@ public class AddCommand extends Command {
             case "RocketPart":
                 itm = new RocketPart(state.getController());
                 break;
+            default:
+                break;
         }
         if(itm != null) {
             int slot = player.addItem(itm);
