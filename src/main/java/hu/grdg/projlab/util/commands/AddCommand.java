@@ -48,7 +48,7 @@ public class AddCommand extends Command {
         }
         if(itm != null) {
             int slot = player.addItem(itm);
-            itm.setFuckinOwner(player);
+            itm.setOwner(player);
 
             ProtoIO.outputf(ProtoIO.OutputMessages.ADD_OUT, slot);
         }

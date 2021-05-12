@@ -54,7 +54,7 @@ public abstract class Item {
     public Player getOwner(){
         return owner;
     }
-    
+
     /**
      * Sets the isFrozen property. Used for saved game loading
      * @param isForzen The new state
@@ -67,7 +67,7 @@ public abstract class Item {
      * Sets the owner of the item
      * @param player The new owner
      */
-    public void setFuckinOwner(Player player) {
+    public void setOwner(Player player) {
         this.owner = player;
     }
 }
