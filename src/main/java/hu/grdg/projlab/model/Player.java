@@ -16,7 +16,7 @@ public abstract class Player extends Entity{
 
     /**
      * Sets maxTemp for player, init other attributes
-     * @param _maxTemp Maximum temperature
+     * @param maxTemp Maximum temperature
      * @author Geri, Dorina
      */
     public Player(int maxTemp, Controller controller){
