@@ -36,7 +36,7 @@ public class RocketStepDefs {
         success = part.useItem();
     }
 
-    @Then("it is unsuccessful")
+    @Then("it is not successful")
     public void itIsSuccessful() {
         assertFalse(success);
     }
