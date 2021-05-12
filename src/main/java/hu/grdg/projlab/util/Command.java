@@ -43,7 +43,7 @@ public abstract class Command {
      * @throws CommandException if there are no elements in the list
      */
     protected String getStringArg(List<String> inputParams) throws CommandException {
-        if(inputParams.size() > 0) {
+        if(!inputParams.isEmpty()) {
             String p =  inputParams.get(0);
             inputParams.remove(0);
             return p;
