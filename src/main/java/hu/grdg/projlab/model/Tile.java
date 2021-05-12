@@ -1,12 +1,10 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.Proto;
 import hu.grdg.projlab.ProtoIO;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Random;
 
 public abstract class Tile {
     private boolean hasIgloo;
