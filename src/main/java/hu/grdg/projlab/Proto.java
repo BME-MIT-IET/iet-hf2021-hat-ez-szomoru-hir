@@ -29,7 +29,6 @@ public class Proto {
         pis.registerCommand("Item", new ItemCommand());
         pis.registerCommand("Step", new StepCommand());
         pis.registerCommand("Load", new LoadCommand());
-        //pis.registerCommand("Save", new SaveCommand());
         pis.registerCommand("Stat", new StatCommand());
         pis.registerCommand("SnowStorm", new SnowStormCommand());
         pis.registerCommand("Add", new AddCommand());
