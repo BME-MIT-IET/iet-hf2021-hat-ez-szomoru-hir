@@ -21,7 +21,7 @@ public class SnowStormCommand extends Command {
         }
 
        HashMap<Tile, Integer> pairs = new HashMap<>();
-        while(inputParams.size() > 0) {
+        while(!inputParams.isEmpty()) {
             String name = getStringArg(inputParams);
             int amount = getIntArg(inputParams);
 
