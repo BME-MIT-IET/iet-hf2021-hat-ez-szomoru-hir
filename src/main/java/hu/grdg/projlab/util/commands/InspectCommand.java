@@ -27,7 +27,15 @@ public class InspectCommand extends Command {
         }
         Item fi = t.getFrozenItem();
         String iName = fi == null ? "null" : fi.getClass().getSimpleName();
-        String isF = fi == null ? "" : fi.isFrozen() ? "yes" : "no";
+        String isF;
+        if(fi == null){
+            isF = "";
+        }else {
+            if(fi.isFrozen())
+                isF = "yes";
+            else
+                isF = "no";
+        }
         String outf = String.format("Item: %s, IsFrozen: %s", iName, isF);
         ProtoIO.outputf(ProtoIO.OutputMessages.INSPECT_OUT, outf);
     }
