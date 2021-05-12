@@ -29,7 +29,6 @@ public class UnfreezeCommand extends Command {
             return;
         }
 
-        //FIXME BAD OUTPUT IN DOCS
         Item fItem;
         if((fItem = tile.getFrozenItem()) == null) {
             ProtoIO.output(ERR_SNOW);
@@ -39,7 +38,6 @@ public class UnfreezeCommand extends Command {
         if(fItem.unfreeze()) {
             ProtoIO.output(UNFREEZE_OUT);
         }else {
-            //FIXME Not in docs
             ProtoIO.output(UNFREEZE_ERR_UNFRREZED);
         }
 
