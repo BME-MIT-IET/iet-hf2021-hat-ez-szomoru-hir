@@ -31,12 +31,12 @@ public class SpecialAbilityCommand extends Command {
         if(p instanceof Scientist && dir == 0) {
             throw new CommandException("Required int parameter was not provided");
         }
-        Direction.direction = dir;
-        if(p.specialAbility()) {
 
-        }else {
+        Direction.direction = dir;
+
+        boolean didIt = p.specialAbility();
+        if(!didIt)
             ProtoIO.output(ProtoIO.OutputMessages.SPECAB_ERR_FAILURE);
-        }
     }
 
     @Override
