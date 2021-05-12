@@ -27,10 +27,6 @@ public abstract class Player extends Entity{
         this.controller = controller;
     }
 
-    //----------------WARNING-----------------
-    //NOT IN DOCS
-    //TODO Fix the doc
-
     /**
      * Returns the Entity's inventory
      * @return the Entity's inventory
@@ -39,11 +35,6 @@ public abstract class Player extends Entity{
     public List<Item> getInventory() {
         return inventory;
     }
-
-    //----------------WARNING----------------
-    //CHANGED ARG FROM VOID TO INT
-    //@returns The index of the added item
-    //TODO Fix doc
 
     /**
      * Add new item to the inventory
