@@ -197,5 +197,9 @@ public abstract class Tile {
     public boolean hasIgloo() {
         return hasIgloo;
     }
+
+    public int getSnowLayers() {
+        return snowLayers;
+    }
 }
 
