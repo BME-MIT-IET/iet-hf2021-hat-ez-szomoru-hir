@@ -11,6 +11,7 @@ import static org.junit.Assert.assertEquals;
 public class PickUpStepDefs {
     private Player player;
     private Boolean success;
+    private Item item;
 
     @ParameterType(value = "frozen|unfreezed")
     public Boolean isFrozen(String value){
@@ -22,12 +23,18 @@ public class PickUpStepDefs {
         return value.equals("reachable");
     }
 
+    @ParameterType(value = "successful|unsuccessful")
+    public Boolean isSuccessful(String value){
+        return value.equals("successful");
+    }
+
     @Given("item is {isFrozen} and {isReachable}")
     public void itemIsFrozenAndReachable(Boolean frozen, Boolean reachable) {
         player = new Eskimo(null);
         Tile tile = new IceTile();
         tile.acceptEntity(player);
-        tile.setFrozenItem(new Rope());
+        item = new Rope();
+        tile.setFrozenItem(item);
         if(!frozen){
             tile.getFrozenItem().setIsFrozen(false);
         }
@@ -43,6 +50,26 @@ public class PickUpStepDefs {
 
     @Then("player has the item is {booleanValue}")
     public void playerHasTheItemIsResult(Boolean expected) {
+        assertEquals(expected, success);
+    }
+
+    @When("player tries to unfreeze it")
+    public void playerTriesToUnfreezeIt() {
+        var tile = player.getCurrentTile();
+        var frozenitem = tile.getFrozenItem();
+        if(frozenitem != null){
+            success = frozenitem.unfreeze();
+        }
+        else{
+            success = false;
+        }
+        //var s = fozenitem.unfreeze();
+        //success = s;
+        //success = player.getCurrentTile().getFrozenItem().unfreeze();
+    }
+
+    @Then("the unfreezing was {isSuccessful}")
+    public void theItemIsUnfreezedIsResult(Boolean expected) {
         assertEquals(expected, success);
     }
 }
