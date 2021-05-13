@@ -63,9 +63,6 @@ public class PickUpStepDefs {
         else{
             success = false;
         }
-        //var s = fozenitem.unfreeze();
-        //success = s;
-        //success = player.getCurrentTile().getFrozenItem().unfreeze();
     }
 
     @Then("the unfreezing was {isSuccessful}")
