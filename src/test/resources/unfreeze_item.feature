@@ -8,6 +8,6 @@ Feature: Unfreeze item
     Examples:
       | frozen    | reachable   | success        |
       | frozen    | reachable   | successful     |
-      | unfreezed | reachable   | unsuccessful     |
+      | unfreezed | reachable   | unsuccessful   |
       | frozen    | unreachable | unsuccessful   |
       | unfreezed | unreachable | unsuccessful   |
