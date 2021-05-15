@@ -1,3 +1,6 @@
 Build keretrendszer beüzemelése + CI 
 
-A projektet gradle-ös projektként hoztam létre, hogy build-elhető legyen a projekt
+A projektet gradle-ös projektként hoztuk létre, hogy build-elhető legyen. Ebbe a build.gradle fájlba bekerült a sonarqube mint plugin, hogy mikor a main
+
+![](figure/gradle.png)
+
