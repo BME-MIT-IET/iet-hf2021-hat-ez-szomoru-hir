@@ -34,34 +34,27 @@ public class ProtoInputSystem {
      */
     public void start() {
         var gameState = new ProtoRuntime();
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(System.in));
+        try (var reader = new BufferedReader(new InputStreamReader(System.in))) {
             String commandLine;
             while ((commandLine = reader.readLine()) != null) {
                 String[] commandParts = commandLine.split(" ");
                 String command = commandParts[0];
 
-                if(commands.containsKey(command)) {
+                if (commands.containsKey(command)) {
                     var c = commands.get(command);
-                    if(commandParts.length < c.getParamCount() + 1) {
+                    if (commandParts.length < c.getParamCount() + 1) {
                         ProtoIO.outputf("Command error: The command requires %d arguments but only %d were provided", c.getParamCount(), commandParts.length - 1);
-                    }else {
+                    } else {
                         runCommand(gameState, c, commandParts);
                     }
-                }else {
+                } else {
                     ProtoIO.output("Command error: Invalid command");
                 }
             }
         } catch (IOException e) {
             ProtoIO.output("Error occured :(");
-        } finally {
-            try {
-                reader.close();
-            }catch (Exception e) {
-                //The universe blows up
-            }
         }
+        //The universe blows up
     }
 
     private void runCommand(ProtoRuntime gameState, Command c, String[] commandParts) {
