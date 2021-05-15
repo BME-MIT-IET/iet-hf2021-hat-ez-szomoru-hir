@@ -56,37 +56,19 @@ public class TileTag extends Tag<TileClass> {
      * @throws GameLoadException if the item name is invalid
      */
     public static Item createItem(String type) throws GameLoadException {
-        Item itm = null;
-        switch (type) {
-            case "Rope":
-                itm = new Rope();
-                break;
-            case "DivingSuit":
-                itm = new DivingSuit();
-                break;
-            case "Food":
-                itm = new Food();
-                break;
-            case "Shovel":
-                itm = new Shovel();
-                break;
-            case "BreakableShovel":
-                itm = new BreakableShovel();
-                break;
-            case "Tent":
-                itm = new Tent();
-                break;
-            case "RocketPart":
-                //TODO FIX IT
-                itm = new RocketPart(null);
-                break;
-            case "None":
-                itm = null;
-                break;
-            default:
-                throw new GameLoadException("Invalid item type");
-        }
-        return itm;
+        return switch (type) {
+            case "Rope" -> new Rope();
+            case "DivingSuit" -> new DivingSuit();
+            case "Food" -> new Food();
+            case "Shovel" -> new Shovel();
+            case "BreakableShovel" -> new BreakableShovel();
+            case "Tent" -> new Tent();
+            case "RocketPart" ->
+                    //TODO FIX IT
+                    new RocketPart(null);
+            case "None" -> null;
+            default -> throw new GameLoadException("Invalid item type");
+        };
     }
 
     @Override
