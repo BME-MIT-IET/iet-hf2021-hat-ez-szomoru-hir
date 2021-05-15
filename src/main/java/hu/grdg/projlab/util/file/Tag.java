@@ -6,7 +6,7 @@ public abstract class Tag<T> {
     public abstract T getData() throws GameLoadException;
     public abstract Tag<T> createFromData(T data);
 
-    public Tag(String textData) {
+    protected Tag(String textData) {
         this.textData = textData;
     }
 }
