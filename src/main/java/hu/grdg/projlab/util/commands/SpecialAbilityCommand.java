@@ -16,9 +16,9 @@ public class SpecialAbilityCommand extends Command {
 
     @Override
     public void runCommand(ProtoRuntime state, List<String> inputParams) throws CommandException {
-        String pName = getStringArg(inputParams);
+        var pName = getStringArg(inputParams);
 
-        int dir = 0;
+        var dir = 0;
         if(!inputParams.isEmpty() && !inputParams.get(0).equals("null"))
           dir = getIntArg(inputParams);
 
