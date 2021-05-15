@@ -34,7 +34,7 @@ public class ScanLimitStepDefs {
 
     @When("scientist scan tile")
     public void scientistScanTile() {
-        Direction.setDirection(1);
+        Direction.setCode(1);
         result = player.getCurrentTile().getNeighbour(1).scanLimit();
     }
 

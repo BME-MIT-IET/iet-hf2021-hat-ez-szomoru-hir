@@ -4,13 +4,13 @@ public class Direction {
     private Direction() {
     }
 
-    private static int direction;
+    private static int code;
 
-    public static int getDirection() {
-        return direction;
+    public static int getCode() {
+        return code;
     }
 
-    public static void setDirection(int direction) {
-        Direction.direction = direction;
+    public static void setCode(int code) {
+        Direction.code = code;
     }
 }
