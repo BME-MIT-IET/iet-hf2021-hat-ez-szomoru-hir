@@ -14,7 +14,7 @@ public class LoadCommand extends Command {
     @Override
     public void runCommand(ProtoRuntime state, List<String> inputParams) throws CommandException {
         state.reset();
-        SavedGame sg = SavedGame.load(getStringArg(inputParams));
+        var sg = SavedGame.load(getStringArg(inputParams));
         ProtoRuntime pr = sg.getState();
 
         for (Map.Entry<String, Tile> tile : pr.getTiles()) {
