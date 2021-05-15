@@ -37,8 +37,8 @@ public class TagIO {
      */
     public static <T> Tag<T> readTag(BufferedReader reader) throws IOException, GameLoadException {
         String line = reader.readLine();
-        Pattern pattern = Pattern.compile(tagRegex);
-        Matcher m = pattern.matcher(line);
+        var pattern = Pattern.compile(tagRegex);
+        var m = pattern.matcher(line);
         if(m.find()) {
             String type = line.split("\\|")[0].replace("<","").trim();
             String value = line.split("\\|")[1].replace(">","").trim();
