@@ -92,9 +92,9 @@ public class SavedGame {
 
         for(var i = 0; i < entityCount; i++) {
             EntityClass ec = (EntityClass) TagIO.readTag(reader).getData();
-            state.addEntity(ec.name, ec.entity);
-            var t = state.getTile(ec.tile);
-            t.acceptEntity(ec.entity);
+            state.addEntity(ec.getName(), ec.getEntity());
+            var t = state.getTile(ec.getTile());
+            t.acceptEntity(ec.getEntity());
         }
 
 
