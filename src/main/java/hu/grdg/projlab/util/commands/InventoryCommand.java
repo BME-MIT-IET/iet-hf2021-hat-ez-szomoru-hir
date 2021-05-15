@@ -2,7 +2,6 @@ package hu.grdg.projlab.util.commands;
 
 import hu.grdg.projlab.ProtoIO;
 import hu.grdg.projlab.model.Item;
-import hu.grdg.projlab.model.Player;
 import hu.grdg.projlab.util.Command;
 import hu.grdg.projlab.util.CommandException;
 import hu.grdg.projlab.util.ProtoRuntime;
