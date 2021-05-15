@@ -7,7 +7,7 @@ public class Shovel extends Item {
      * @author Boti
      */
     public boolean useItem(){
-        Tile t = owner.getCurrentTile();
+        var t = owner.getCurrentTile();
         return t.removeSnowLayer(2);
     }
 }

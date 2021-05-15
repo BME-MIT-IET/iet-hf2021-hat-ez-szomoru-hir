@@ -1,6 +1,6 @@
 package hu.grdg.projlab.util.commands;
 
-import hu.grdg.projlab.Proto;
+
 import hu.grdg.projlab.ProtoIO;
 import hu.grdg.projlab.model.HoleTile;
 import hu.grdg.projlab.model.IceTile;
@@ -15,8 +15,8 @@ public class NewTileCommand extends Command {
 
     @Override
     public void runCommand(ProtoRuntime state, List<String> inputParams) throws CommandException {
-        String tileName = getStringArg(inputParams);
-        String type = getStringArgOf(inputParams, setOf("h","u","i"));
+        var tileName = getStringArg(inputParams);
+        var type = getStringArgOf(inputParams, setOf("h","u","i"));
 
         if(state.getTile(tileName) != null) {
             ProtoIO.output(ProtoIO.OutputMessages.ERR_NAME_USED);
@@ -25,7 +25,7 @@ public class NewTileCommand extends Command {
 
         switch (type) {
             case "u": {
-                int limit = getIntArg(inputParams);
+                var limit = getIntArg(inputParams);
                 state.addTile(tileName, new UnstableIceTile(limit));
             }
                 break;
@@ -34,7 +34,9 @@ public class NewTileCommand extends Command {
                 break;
             case "i":
                 state.addTile(tileName, new IceTile());
-
+                break;
+            default:
+                break;
         }
         ProtoIO.output(ProtoIO.OutputMessages.NEWTILE_OUT);
     }

@@ -33,43 +33,39 @@ public class ProtoInputSystem {
      * Starts command parsing, it returns when EOF occurs on System.in
      */
     public void start() {
-        ProtoRuntime gameState = new ProtoRuntime();
-        BufferedReader reader = null;
-        try {
-            reader = new BufferedReader(new InputStreamReader(System.in));
+        var gameState = new ProtoRuntime();
+        try (var reader = new BufferedReader(new InputStreamReader(System.in))) {
             String commandLine;
             while ((commandLine = reader.readLine()) != null) {
                 String[] commandParts = commandLine.split(" ");
                 String command = commandParts[0];
 
-                if(commands.containsKey(command)) {
-                    Command c = commands.get(command);
-                    if(commandParts.length < c.getParamCount() + 1) {
+                if (commands.containsKey(command)) {
+                    var c = commands.get(command);
+                    if (commandParts.length < c.getParamCount() + 1) {
                         ProtoIO.outputf("Command error: The command requires %d arguments but only %d were provided", c.getParamCount(), commandParts.length - 1);
-                    }else {
-                        List<String> args = new ArrayList<>();
-                        if(c.getParamCount() > 0) {
-                            args.addAll(Arrays.asList(commandParts).subList(1, commandParts.length));
-                        }
-                        try {
-                            c.runCommand(gameState, args);
-                        }catch (CommandException e) {
-                            ProtoIO.output("Command error: " + e.getMessage());
-                        }
-
+                    } else {
+                        runCommand(gameState, c, commandParts);
                     }
-                }else {
+                } else {
                     ProtoIO.output("Command error: Invalid command");
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                reader.close();
-            }catch (Exception e) {
-                //The universe blows up
-            }
+            ProtoIO.output("Error occured :(");
+        }
+        //The universe blows up
+    }
+
+    private void runCommand(ProtoRuntime gameState, Command c, String[] commandParts) {
+        List<String> args = new ArrayList<>();
+        if(c.getParamCount() > 0) {
+            args.addAll(Arrays.asList(commandParts).subList(1, commandParts.length));
+        }
+        try {
+            c.runCommand(gameState, args);
+        }catch (CommandException e) {
+            ProtoIO.output("Command error: " + e.getMessage());
         }
     }
 }

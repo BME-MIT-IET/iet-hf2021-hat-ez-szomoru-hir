@@ -11,8 +11,8 @@ import java.util.List;
 public class ItemCommand extends Command {
     @Override
     public void runCommand(ProtoRuntime state, List<String> inputParams) throws CommandException {
-        String type = getStringArgOf(inputParams, setOf("Rope", "DivingSuit","Food","Shovel", "BreakableShovel","Tent","RocketPart"));
-        String fieldName = getStringArg(inputParams);
+        var type = getStringArgOf(inputParams, setOf("Rope", "DivingSuit","Food","Shovel", "BreakableShovel","Tent","RocketPart"));
+        var fieldName = getStringArg(inputParams);
         Tile t;
         if((t = state.getTile(fieldName)) == null) {
             ProtoIO.output(ProtoIO.OutputMessages.ERR_TILE_NOT_FOUND);
@@ -41,6 +41,8 @@ public class ItemCommand extends Command {
                 break;
             case "RocketPart":
                 itm = new RocketPart(state.getController());
+                break;
+            default:
                 break;
         }
         t.setFrozenItem(itm);

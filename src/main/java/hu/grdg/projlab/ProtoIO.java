@@ -11,6 +11,9 @@ public class ProtoIO {
 
     private static boolean silent = false;
 
+    private ProtoIO() {
+    }
+
     /**
      * Static class for all output messages as specified in the 8th document.
      *
@@ -61,6 +64,9 @@ public class ProtoIO {
         public static final String SPECAB_ERR_FAILURE = "SpecialAbility failure";
         public static final String UNFREEZE_OUT = "Item unfreezed";
         public static final String UNFREEZE_ERR_UNFRREZED = "Unfreeze failed";
+
+        private OutputMessages() {
+        }
     }
 
     /**
@@ -95,6 +101,6 @@ public class ProtoIO {
     public static void outputf(String message, Object... args) {
 
         if (!silent)
-            System.out.printf(message + "\n", args);
+            System.out.printf(String.format("%s%n", message), args);
     }
 }

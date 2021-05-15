@@ -32,7 +32,7 @@ public class TileTag extends Tag<TileClass> {
         }
 
         t.addSnowLayer(Integer.parseInt(snow));
-        Item itm = createItem(fItem);
+        var itm = createItem(fItem);
         if(itm != null)
             itm.setIsFrozen(Boolean.parseBoolean(isFrozen));
         t.setFrozenItem(itm);
@@ -42,7 +42,7 @@ public class TileTag extends Tag<TileClass> {
         if(Boolean.parseBoolean(hasTent))
             t.buildTent();
 
-        TileClass tc = new TileClass();
+        var tc = new TileClass();
         tc.name = name;
         tc.tile = t;
 
@@ -56,37 +56,27 @@ public class TileTag extends Tag<TileClass> {
      * @throws GameLoadException if the item name is invalid
      */
     public static Item createItem(String type) throws GameLoadException {
-        Item itm = null;
         switch (type) {
             case "Rope":
-                itm = new Rope();
-                break;
+                return new Rope();
             case "DivingSuit":
-                itm = new DivingSuit();
-                break;
+                return new DivingSuit();
             case "Food":
-                itm = new Food();
-                break;
+                return new Food();
             case "Shovel":
-                itm = new Shovel();
-                break;
+                return new Shovel();
             case "BreakableShovel":
-                itm = new BreakableShovel();
-                break;
+                return new BreakableShovel();
             case "Tent":
-                itm = new Tent();
-                break;
-            case "RocketPart":
+                return new Tent();
                 //TODO FIX IT
-                itm = new RocketPart(null);
-                break;
+            case "RocketPart":
+                return new RocketPart(null);
             case "None":
-                itm = null;
-                break;
+                return null;
             default:
                 throw new GameLoadException("Invalid item type");
         }
-        return itm;
     }
 
     @Override

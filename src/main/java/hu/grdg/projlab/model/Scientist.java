@@ -19,7 +19,7 @@ public class Scientist extends Player{
      */
     @Override
     public boolean specialAbility() {
-        Tile t = currentTile.getNeighbour(Direction.direction);
+        var t = currentTile.getNeighbour(Direction.direction);
         int limit = t.scanLimit();
         ProtoIO.outputf(ProtoIO.OutputMessages.SPECAB_OUT_SCI, limit);
         return true;
