@@ -48,10 +48,10 @@ public class SavedGame {
      */
     public static SavedGame load(String fileName) {
         try {
-            SavedGame ins = new SavedGame();
+            var ins = new SavedGame();
             ins.checkFile(fileName);
 
-            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+            var reader = new BufferedReader(new FileReader(fileName));
 
             ins.loadHeader(reader);
             ins.loadContent(reader);
@@ -75,24 +75,24 @@ public class SavedGame {
      */
     private void loadContent(BufferedReader reader) throws IOException, GameLoadException {
         //Load tile contents
-        for(int i = 0; i < tile_number; i++) {
+        for(var i = 0; i < tile_number; i++) {
             TileClass tc = (TileClass) TagIO.readTag(reader).getData();
             state.addTile(tc.name, tc.tile);
         }
 
         //Load connections
-        for(int i = 0; i < connection_count; i++) {
+        for(var i = 0; i < connection_count; i++) {
             ConnectionClass cc = (ConnectionClass) TagIO.readTag(reader).getData();
-            Tile t1 = state.getTile(cc.name1);
-            Tile t2 = state.getTile(cc.name2);
+            var t1 = state.getTile(cc.name1);
+            var t2 = state.getTile(cc.name2);
             t1.setNeighbour(t2, cc.dir1);
             t2.setNeighbour(t1, cc.dir2);
         }
 
-        for(int i = 0; i < entitycount; i++) {
+        for(var i = 0; i < entitycount; i++) {
             EntityClass ec = (EntityClass) TagIO.readTag(reader).getData();
             state.addEntity(ec.name, ec.entity);
-            Tile t = state.getTile(ec.tile);
+            var t = state.getTile(ec.tile);
             t.acceptEntity(ec.entity);
         }
 
