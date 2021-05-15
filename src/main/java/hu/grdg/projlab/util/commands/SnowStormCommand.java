@@ -22,8 +22,8 @@ public class SnowStormCommand extends Command {
 
        HashMap<Tile, Integer> pairs = new HashMap<>();
         while(!inputParams.isEmpty()) {
-            String name = getStringArg(inputParams);
-            int amount = getIntArg(inputParams);
+            var name = getStringArg(inputParams);
+            var amount = getIntArg(inputParams);
 
             Tile t;
             if((t = state.getTile(name)) == null) {
