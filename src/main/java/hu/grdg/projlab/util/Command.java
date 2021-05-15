@@ -58,7 +58,7 @@ public abstract class Command {
      * @return The string arg
      */
     protected String getStringArgOf(List<String> inputParams, HashSet<String> valueSet) throws CommandException {
-        String val = getStringArg(inputParams);
+        var val = getStringArg(inputParams);
         if(valueSet.contains(val)) {
             return val;
         }
@@ -72,7 +72,7 @@ public abstract class Command {
      * @throws CommandException if the next arg is not an integer
      */
     protected int getIntArg(List<String> inputParams) throws CommandException {
-        String val = "";
+        var val = "";
         try {
             val = getStringArg(inputParams);
             return Integer.parseInt(val);
@@ -91,7 +91,7 @@ public abstract class Command {
      * @return The player or null
      */
     protected Player getPlayer(String pName, ProtoRuntime state) {
-        Entity e = state.getEntity(pName);
+        var e = state.getEntity(pName);
         if(!(e instanceof Player)) {
             return null;
         }
