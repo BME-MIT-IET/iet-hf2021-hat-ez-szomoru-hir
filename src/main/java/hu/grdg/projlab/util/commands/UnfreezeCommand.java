@@ -15,7 +15,7 @@ import static hu.grdg.projlab.ProtoIO.OutputMessages.*;
 public class UnfreezeCommand extends Command {
     @Override
     public void runCommand(ProtoRuntime state, List<String> inputParams) throws CommandException {
-        String pName = getStringArg(inputParams);
+        var pName = getStringArg(inputParams);
 
         Player p;
         if((p = getPlayer(pName, state)) == null) {
@@ -23,7 +23,7 @@ public class UnfreezeCommand extends Command {
             return;
         }
 
-        Tile tile = p.getCurrentTile();
+        var tile = p.getCurrentTile();
         if(tile == null) {
             ProtoIO.output(ERR_NOT_ON_TILE);
             return;
