@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.function.Function;
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -13,7 +12,7 @@ import java.util.regex.Pattern;
 public class TagIO {
 
     private static HashMap<String, Function<String, Tag>> generators = new HashMap<>();
-    private static final String tagRegex = "<([a-zA-Z0-9])+ \\| ([a-zA-Z0-9.:;', ]+)>";
+    private static final String TAG_REGEX = "<([a-zA-Z0-9])+ \\| ([a-zA-Z0-9.:;', ]+)>";
 
     /**
      * Register tag handlers for tags
@@ -37,7 +36,7 @@ public class TagIO {
      */
     public static <T> Tag<T> readTag(BufferedReader reader) throws IOException, GameLoadException {
         String line = reader.readLine();
-        var pattern = Pattern.compile(tagRegex);
+        var pattern = Pattern.compile(TAG_REGEX);
         var m = pattern.matcher(line);
         if(m.find()) {
             String type = line.split("\\|")[0].replace("<","").trim();
