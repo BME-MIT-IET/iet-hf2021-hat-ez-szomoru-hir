@@ -20,32 +20,8 @@ public class AddCommand extends Command {
             return;
         }
 
-        Item itm = null;
-        switch (type) {
-            case "Rope":
-                itm = new Rope();
-                break;
-            case "DivingSuit":
-                itm = new DivingSuit();
-                break;
-            case "Food":
-                itm = new Food();
-                break;
-            case "Shovel":
-                itm = new Shovel();
-                break;
-            case "BreakableShovel":
-                itm = new BreakableShovel();
-                break;
-            case "Tent":
-                itm = new Tent();
-                break;
-            case "RocketPart":
-                itm = new RocketPart(state.getController());
-                break;
-            default:
-                break;
-        }
+
+        var itm = initializeItem(state, type);
         if(itm != null) {
             int slot = player.addItem(itm);
             itm.setOwner(player);
@@ -54,6 +30,8 @@ public class AddCommand extends Command {
         }
 
     }
+
+
 
     @Override
     public int getParamCount() {
