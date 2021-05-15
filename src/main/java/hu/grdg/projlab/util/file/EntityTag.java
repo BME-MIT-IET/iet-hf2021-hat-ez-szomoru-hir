@@ -33,14 +33,14 @@ public class EntityTag extends Tag<EntityClass> {
 
             String[] itms = inv.split(",");
             for(String item : itms) {
-                Item itm = TileTag.createItem(item);
+                var itm = TileTag.createItem(item);
                 if(itm != null)
                     p.addItem(itm);
             }
 
             e = p;
         }
-        EntityClass ec = new EntityClass();
+        var ec = new EntityClass();
         ec.entity = e;
         ec.name = name;
         ec.tile = tile;

@@ -16,6 +16,7 @@ public class BreakableShovel extends Shovel{
      * @return true if it was succesful
      * @author Boti
      */
+    @Override
     public boolean useItem(){
         if(useCount<3) {
             boolean sikerult = super.useItem();

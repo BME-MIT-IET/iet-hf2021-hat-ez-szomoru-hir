@@ -11,10 +11,10 @@ import java.util.List;
 public class AddCommand extends Command {
     @Override
     public void runCommand(ProtoRuntime state, List<String> inputParams) throws CommandException {
-        String pName = getStringArg(inputParams);
-        String type = getStringArgOf(inputParams, setOf("Rope", "DivingSuit","Food","Shovel", "BreakableShovel","Tent","RocketPart"));
+        var pName = getStringArg(inputParams);
+        var type = getStringArgOf(inputParams, setOf("Rope", "DivingSuit","Food","Shovel", "BreakableShovel","Tent","RocketPart"));
 
-        Player player = getPlayer(pName, state);
+        var player = getPlayer(pName, state);
         if(player == null) {
             ProtoIO.output(ProtoIO.OutputMessages.ERR_PLAYER_NOT_FOUND);
             return;
@@ -43,10 +43,12 @@ public class AddCommand extends Command {
             case "RocketPart":
                 itm = new RocketPart(state.getController());
                 break;
+            default:
+                break;
         }
         if(itm != null) {
             int slot = player.addItem(itm);
-            itm.setFuckinOwner(player);
+            itm.setOwner(player);
 
             ProtoIO.outputf(ProtoIO.OutputMessages.ADD_OUT, slot);
         }

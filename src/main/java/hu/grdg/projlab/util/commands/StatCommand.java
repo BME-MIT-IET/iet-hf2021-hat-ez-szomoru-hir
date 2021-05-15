@@ -8,16 +8,15 @@ import hu.grdg.projlab.util.ProtoRuntime;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class StatCommand extends Command {
     @Override
     public void runCommand(ProtoRuntime state, List<String> inputParams) throws CommandException {
-        String eName = getStringArg(inputParams);
-        Entity entity = state.getEntity(eName);
-        Tile tile = state.getTile(eName);
+        var eName = getStringArg(inputParams);
+        var entity = state.getEntity(eName);
+        var tile = state.getTile(eName);
         if(entity == null && tile == null) {
             ProtoIO.output(ProtoIO.OutputMessages.ERR_PLAYER_NOT_FOUND);
         }
@@ -28,7 +27,7 @@ public class StatCommand extends Command {
                 stat(tile);
             }
         }catch (IllegalAccessException e) {
-            CommandException ce = new CommandException("Stat reflection error");
+            var ce = new CommandException("Stat reflection error");
             ce.initCause(e);
             throw ce;
         }
@@ -47,10 +46,10 @@ public class StatCommand extends Command {
         HashMap<String, String> dataMap = new HashMap<>();
 
         //Get class instance from object (for ex: UnstableIceTile.class for unstable ice tile instances)
-        Class clazz = intstance.getClass();
+        var clazz = intstance.getClass();
 
         //We iterate over the inheritance tree and print all fields until Object.class
-        for(Class base = clazz; base != Object.class; base = base.getSuperclass()) {
+        for(var base = clazz; base != Object.class; base = base.getSuperclass()) {
             //Get all fields in the class
             Field[] declaredFields = base.getDeclaredFields();
             //Iterate over the fields
@@ -67,7 +66,7 @@ public class StatCommand extends Command {
         }
         //Get simple class name(without package)
         String tName = clazz.getSimpleName();
-        String valString = dataMap.entrySet().stream().map(stringStringEntry -> String.format("%s: %s", stringStringEntry.getKey(), stringStringEntry.getValue())).collect(Collectors.joining(","));
+        var valString = dataMap.entrySet().stream().map(stringStringEntry -> String.format("%s: %s", stringStringEntry.getKey(), stringStringEntry.getValue())).collect(Collectors.joining(","));
 
         ProtoIO.outputf("%s stat: [%s]", tName, valString);
     }

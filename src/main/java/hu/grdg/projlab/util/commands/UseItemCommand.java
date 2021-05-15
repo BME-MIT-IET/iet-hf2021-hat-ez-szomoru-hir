@@ -1,7 +1,6 @@
 package hu.grdg.projlab.util.commands;
 
 import hu.grdg.projlab.ProtoIO;
-import hu.grdg.projlab.model.Item;
 import hu.grdg.projlab.model.Player;
 import hu.grdg.projlab.util.Command;
 import hu.grdg.projlab.util.CommandException;
@@ -13,12 +12,8 @@ import java.util.List;
 public class UseItemCommand extends Command {
     @Override
     public void runCommand(ProtoRuntime state, List<String> inputParams) throws CommandException {
-        String pName = getStringArg(inputParams);
-        int slot = getIntArg(inputParams);
-
-        int arg = -1;
-        if(inputParams.size() > 0 && !inputParams.get(0).equals("null"))
-            arg = getIntArg(inputParams);
+        var pName = getStringArg(inputParams);
+        var slot = getIntArg(inputParams);
 
         Player p;
         if((p = getPlayer(pName,state)) == null) {
@@ -27,14 +22,13 @@ public class UseItemCommand extends Command {
         }
 
         try {
-            Item item = p.getInventory().get(slot - 1);
+            var item = p.getInventory().get(slot - 1);
             boolean succ = item.useItem();
             if(succ)
                 ProtoIO.output(ProtoIO.OutputMessages.USEITEM_OUT);
             else
                 ProtoIO.output(ProtoIO.OutputMessages.USEITEM_ERR_ITEMFAIL);
         } catch (Exception e) {
-            e.printStackTrace();
             ProtoIO.output(ProtoIO.OutputMessages.USEITEM_ERR_NOITEM);
         }
 

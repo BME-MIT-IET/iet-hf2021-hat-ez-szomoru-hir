@@ -1,25 +1,21 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.Proto;
 import hu.grdg.projlab.ProtoIO;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.Random;
+import java.util.List;
 
 public abstract class Tile {
     private boolean hasIgloo;
     private boolean hasTent;
     private int snowLayers;
     private Item frozenItem;
-    private HashMap<Integer,Tile> neighbours;
-    protected ArrayList<Entity> entities;
+    private HashMap<Integer,Tile> neighbours = new HashMap<>();
+    protected ArrayList<Entity> entities = new ArrayList<>();
 
-    public Tile(){
-        neighbours= new HashMap<Integer, Tile>();
-        entities = new ArrayList<Entity>();
-    }
+    protected Tile(){ }
 
     /**
      *Returns the Tile at the given direction
@@ -163,7 +159,7 @@ public abstract class Tile {
      * @return the entities on the Tile
      * @author Dorina
      */
-    public ArrayList<Entity> getEntities() {
+    public List<Entity> getEntities() {
         return entities;
     }
 

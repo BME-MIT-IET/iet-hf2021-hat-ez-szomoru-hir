@@ -3,13 +3,10 @@ package hu.grdg.projlab.model;
 import java.util.ArrayList;
 
 public class RemoveTent implements TurnBasedEvent{
-    private static RemoveTent singleton;
-    private ArrayList<Tent> tents;
+    private static RemoveTent singleton = new RemoveTent();
+    private ArrayList<Tent> tents = new ArrayList<>();
 
-    public RemoveTent(){
-        singleton = this;
-        tents = new ArrayList<Tent>();
-    }
+    private RemoveTent(){ }
 
     /**
      * Értesít minden sátrat, hogy csökkentse a számlálóját (meghívja a decreaseLife() függvényüket)

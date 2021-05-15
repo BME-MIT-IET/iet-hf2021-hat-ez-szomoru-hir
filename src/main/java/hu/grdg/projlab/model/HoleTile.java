@@ -1,6 +1,5 @@
 package hu.grdg.projlab.model;
 
-import hu.grdg.projlab.Proto;
 import hu.grdg.projlab.ProtoIO;
 
 public class HoleTile extends Tile{

@@ -9,7 +9,7 @@ public class PolarBear extends Entity{
      */
     @Override
     public void move(int direction) {
-        Tile stepTile = currentTile.getNeighbour(direction);
+        var stepTile = currentTile.getNeighbour(direction);
         currentTile.removeEntity(this);
 
         stepTile.acceptEntity(this);
