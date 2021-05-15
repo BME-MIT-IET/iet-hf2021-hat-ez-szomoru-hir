@@ -1,7 +1,6 @@
 package hu.grdg.projlab.util.file;
 
 import hu.grdg.projlab.ProtoIO;
-import hu.grdg.projlab.model.Tile;
 import hu.grdg.projlab.util.ProtoRuntime;
 
 import java.io.BufferedReader;
@@ -26,9 +25,9 @@ public class SavedGame {
     public static final boolean DEBUG_MODE = true;
 
 
-    private int tile_number;
-    private int connection_count;
-    private int entitycount;
+    private int tileNumber;
+    private int connectionCount;
+    private int entityCount;
     private ProtoRuntime state;
 
 
@@ -77,13 +76,13 @@ public class SavedGame {
      */
     private void loadContent(BufferedReader reader) throws IOException, GameLoadException {
         //Load tile contents
-        for(var i = 0; i < tile_number; i++) {
+        for(var i = 0; i < tileNumber; i++) {
             TileClass tc = (TileClass) TagIO.readTag(reader).getData();
             state.addTile(tc.name, tc.tile);
         }
 
         //Load connections
-        for(var i = 0; i < connection_count; i++) {
+        for(var i = 0; i < connectionCount; i++) {
             ConnectionClass cc = (ConnectionClass) TagIO.readTag(reader).getData();
             var t1 = state.getTile(cc.name1);
             var t2 = state.getTile(cc.name2);
@@ -91,7 +90,7 @@ public class SavedGame {
             t2.setNeighbour(t1, cc.dir2);
         }
 
-        for(var i = 0; i < entitycount; i++) {
+        for(var i = 0; i < entityCount; i++) {
             EntityClass ec = (EntityClass) TagIO.readTag(reader).getData();
             state.addEntity(ec.name, ec.entity);
             var t = state.getTile(ec.tile);
@@ -110,11 +109,11 @@ public class SavedGame {
         int tilenum = (int) TagIO.readTag(reader).getData();
         int connum = (int) TagIO.readTag(reader).getData();
         int ecount = (int) TagIO.readTag(reader).getData();
-        tile_number = tilenum;
-        connection_count = connum;
-        entitycount = ecount;
+        tileNumber = tilenum;
+        connectionCount = connum;
+        entityCount = ecount;
         if(DEBUG_MODE) {
-            ProtoIO.outputf("Map header: %d tiles, %d connections, it has %d entities", tile_number, connection_count, entitycount);
+            ProtoIO.outputf("Map header: %d tiles, %d connections, it has %d entities", tileNumber, connectionCount, entityCount);
         }
     }
 
