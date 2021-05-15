@@ -1,14 +1,14 @@
-#Build iglu on IceTile
+# Build iglu on IceTile
 
-##Arrange
+## Arrange
 - egy IceTile
 - az IceTile-on egy Eskimo
 
-##Act
+## Act
 - az Eskimo iglut épít a tile-on, amin áll
 
-##Assert
+## Assert
 - létrejön egy iglu a tile-on
 
-##Result
+## Result
 ![](images/build_iglu_test.png)
