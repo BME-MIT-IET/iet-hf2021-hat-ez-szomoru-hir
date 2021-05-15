@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
  */
 public class TagIO {
 
-    private static HashMap<String, Function<String, Tag>> generators = new HashMap<>();
+    private static HashMap<String, Function<String, Tag<?>>> generators = new HashMap<>();
     private static final String TAG_REGEX = "<([a-zA-Z0-9])+ \\| ([a-zA-Z0-9.:;', ]+)>";
 
     private TagIO() { }
