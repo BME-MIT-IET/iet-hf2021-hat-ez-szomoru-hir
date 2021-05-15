@@ -23,7 +23,7 @@ public class PolarBear extends Entity{
      */
     @Override
     public void damage(int i) {
-
+        // Do nothing, Polar bear cannot be damaged
     }
 
     /**
@@ -32,7 +32,7 @@ public class PolarBear extends Entity{
      */
     @Override
     public void die() {
-
+        // Do nothing, Polar bear cannot die.
     }
 
     /**
@@ -41,7 +41,7 @@ public class PolarBear extends Entity{
      */
     @Override
     public void fallInWater() {
-
+        // Do nothing, Polar bear cannot suffocate
     }
 
     /**
