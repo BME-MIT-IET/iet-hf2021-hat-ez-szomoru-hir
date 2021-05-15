@@ -15,9 +15,9 @@ public class Controller {
     ArrayList<RocketPart> rocketParts;
 
     public Controller(){
-        events = new ArrayList<TurnBasedEvent>();
-        players = new ArrayList<Player>();
-        rocketParts = new ArrayList<RocketPart>();
+        events = new ArrayList<>();
+        players = new ArrayList<>();
+        rocketParts = new ArrayList<>();
     }
 
     public void addPlayer(Player p){
