@@ -22,13 +22,16 @@ public class EntityTag extends Tag<EntityClass> {
             e = new PolarBear();
         }else {
             Player p = null;
-            //FIXME fix this piece of shit
-            if(type.equals("scientist"))
-                p = new Scientist(null);
-            else if(type.equals("eskimo"))
-                p = new Eskimo(null);
-            else
-                throw new GameLoadException("Invalid entity type");
+            switch (type) {
+                case "scientist":
+                    p = new Scientist(null);
+                    break;
+                case "eskimo":
+                    p = new Eskimo(null);
+                    break;
+                default:
+                    throw new GameLoadException("Invalid entity type");
+            }
             p.setCurrentTemp(Integer.parseInt(life));
 
             String[] itms = inv.split(",");
