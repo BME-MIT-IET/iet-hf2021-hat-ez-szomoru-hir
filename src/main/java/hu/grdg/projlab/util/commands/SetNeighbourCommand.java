@@ -12,13 +12,13 @@ public class SetNeighbourCommand extends Command {
 
     @Override
     public void runCommand(ProtoRuntime state, List<String> inputParams) throws CommandException {
-        String tile1 = getStringArg(inputParams);
-        int dir1 = getIntArg(inputParams);
-        String tile2 = getStringArg(inputParams);
-        int dir2 = getIntArg(inputParams);
+        var tile1 = getStringArg(inputParams);
+        var dir1 = getIntArg(inputParams);
+        var tile2 = getStringArg(inputParams);
+        var dir2 = getIntArg(inputParams);
 
-        Tile t1 = state.getTile(tile1);
-        Tile t2 = state.getTile(tile2);
+        var t1 = state.getTile(tile1);
+        var t2 = state.getTile(tile2);
 
         if(t1 == null || t2 == null) {
             ProtoIO.output(ProtoIO.OutputMessages.ERR_TILE_NOT_FOUND);
