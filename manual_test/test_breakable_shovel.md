@@ -1,4 +1,4 @@
-# Build iglu on IceTile
+# Breakable shovel test
 
 ## Arrange
 - egy IceTile

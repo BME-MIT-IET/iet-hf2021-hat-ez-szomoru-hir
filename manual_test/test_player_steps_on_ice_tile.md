@@ -1,4 +1,4 @@
-# Build iglu on IceTile
+# Player steps on IceTile
 
 ## Arrange
 - két IceTile egymás mellett

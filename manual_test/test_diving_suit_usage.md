@@ -1,4 +1,4 @@
-# Rope Usage
+# Diving Suit Test
 
 ## Arrange
 - egy IceTile és egy HoleTile egymás mellett
@@ -14,4 +14,4 @@
 - a Scientist ki tud lépni a Hole-ból, mert van DivingSuit-ja
 
 ## Result
-![](images/test_diving_suit_useage_result.png)
+![](images/test_diving_suit_usage_result.png)
