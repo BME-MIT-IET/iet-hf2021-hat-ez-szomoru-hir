@@ -4,6 +4,7 @@ import hu.grdg.projlab.ProtoIO;
 import hu.grdg.projlab.model.*;
 import hu.grdg.projlab.util.Command;
 import hu.grdg.projlab.util.CommandException;
+import hu.grdg.projlab.util.ItemFactory;
 import hu.grdg.projlab.util.ProtoRuntime;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class AddCommand extends Command {
         }
 
 
-        var itm = initializeItem(state, type);
+        var itm = ItemFactory.createItem(state, type);
         if(itm != null) {
             int slot = player.addItem(itm);
             itm.setOwner(player);
