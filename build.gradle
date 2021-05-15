@@ -13,6 +13,14 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    testImplementation 'io.cucumber:cucumber-java:6.8.1'
+    testImplementation 'io.cucumber:cucumber-junit:6.8.1'
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
 }
 
 test {
@@ -24,5 +32,16 @@ sonarqube {
         property "sonar.projectKey", "BME-MIT-IET_iet-hf2021-hat-ez-szomoru-hir"
         property "sonar.organization", "bme-mit-iet-org"
         property "sonar.host.url", "https://sonarcloud.io"
+    }
+}
+
+task cucumber() {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', '--glue', 'hu.grdg.projlab', 'src/test/resources']
+        }
     }
 }

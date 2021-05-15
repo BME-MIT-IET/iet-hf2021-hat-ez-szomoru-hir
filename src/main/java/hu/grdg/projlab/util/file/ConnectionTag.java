@@ -14,7 +14,7 @@ public class ConnectionTag extends Tag<ConnectionClass> {
         String part1 = textData.split(":")[0];
         String part2 = textData.split(":")[1];
 
-        ConnectionClass cc = new ConnectionClass();
+        var cc = new ConnectionClass();
         cc.name1 = part1.split(",")[0];
         cc.name2 = part2.split(",")[0];
         cc.dir1 = Integer.parseInt(part1.split(",")[1]);

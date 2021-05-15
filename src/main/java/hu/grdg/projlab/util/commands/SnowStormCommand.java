@@ -7,7 +7,6 @@ import hu.grdg.projlab.util.Command;
 import hu.grdg.projlab.util.CommandException;
 import hu.grdg.projlab.util.ProtoRuntime;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,9 +21,9 @@ public class SnowStormCommand extends Command {
         }
 
        HashMap<Tile, Integer> pairs = new HashMap<>();
-        while(inputParams.size() > 0) {
-            String name = getStringArg(inputParams);
-            int amount = getIntArg(inputParams);
+        while(!inputParams.isEmpty()) {
+            var name = getStringArg(inputParams);
+            var amount = getIntArg(inputParams);
 
             Tile t;
             if((t = state.getTile(name)) == null) {

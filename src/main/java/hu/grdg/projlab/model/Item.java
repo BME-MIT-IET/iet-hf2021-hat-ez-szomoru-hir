@@ -4,11 +4,6 @@ public abstract class Item {
     protected boolean isFrozen = true;
     protected Player owner;
 
-
-
-    //----------WARNING-------------
-    //NOT IN DOCS
-    //TODO Add to docs
     //FIXME
     public boolean isFrozen() {
         return false;
@@ -60,9 +55,6 @@ public abstract class Item {
         return owner;
     }
 
-    //---------------WARNING-----------------
-    //NOT IN DOCS
-    //TODO Add docs
     /**
      * Sets the isFrozen property. Used for saved game loading
      * @param isForzen The new state
@@ -71,12 +63,11 @@ public abstract class Item {
         this.isFrozen = isForzen;
     }
 
-    //----------NOT IN FUCKIN DOCS-----------------
     /**
      * Sets the owner of the item
      * @param player The new owner
      */
-    public void setFuckinOwner(Player player) {
+    public void setOwner(Player player) {
         this.owner = player;
     }
 }

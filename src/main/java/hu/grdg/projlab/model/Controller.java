@@ -9,18 +9,14 @@ import java.util.ArrayList;
  * It schedules the turns, events. It checks the win and lose conditions.
  */
 public class Controller {
-    private ArrayList<TurnBasedEvent> events;
-    private Level level;
     private ArrayList<Player> players;
     ArrayList<RocketPart> rocketParts;
 
     public Controller(){
-        events = new ArrayList<TurnBasedEvent>();
-        players = new ArrayList<Player>();
-        rocketParts = new ArrayList<RocketPart>();
+        players = new ArrayList<>();
+        rocketParts = new ArrayList<>();
     }
 
-    //TODO docs
     public void addPlayer(Player p){
         players.add(p);
     }
@@ -29,21 +25,12 @@ public class Controller {
         rocketParts.add(rp);
     }
 
-    //FIXME
     public void endGame(boolean win){
-
         if(win) {
             ProtoIO.output("Item used. Game ended with a win.");
         }
-        //TODO Add graceful shutdown
         System.exit(0);
     }
-
-
-
-    public void startGame(){ }
-    void generatePlayers() { }
-    void init() { }
 
     /**
      * Checks if all conditions are true for winning the game
@@ -51,7 +38,7 @@ public class Controller {
      * @author Dorina
      */
     public boolean checkWin(){
-        Tile tile = players.get(0).getCurrentTile();
+        var tile = players.get(0).getCurrentTile();
         for (Player player: players) {
             if(!tile.equals(player.getCurrentTile())) return false;
         }

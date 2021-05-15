@@ -12,8 +12,8 @@ import java.util.List;
 public class EskimoCommand extends Command {
     @Override
     public void runCommand(ProtoRuntime state, List<String> inputParams) throws CommandException {
-        String name = getStringArg(inputParams);
-        String fieldName = getStringArg(inputParams);
+        var name = getStringArg(inputParams);
+        var fieldName = getStringArg(inputParams);
 
         if(state.getEntity(name) != null) {
             ProtoIO.output(ProtoIO.OutputMessages.ERR_NAME_USED);
@@ -26,7 +26,7 @@ public class EskimoCommand extends Command {
             return;
         }
 
-        Eskimo ne = new Eskimo(state.getController());
+        var ne = new Eskimo(state.getController());
         state.addEntity(name, ne);
         ProtoIO.output(ProtoIO.OutputMessages.ESKIMO_OUT);
 

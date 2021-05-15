@@ -16,20 +16,16 @@ public abstract class Player extends Entity{
 
     /**
      * Sets maxTemp for player, init other attributes
-     * @param _maxTemp Maximum temperature
+     * @param maxTemp Maximum temperature
      * @author Geri, Dorina
      */
-    public Player(int _maxTemp, Controller controller){
-        inventory = new ArrayList<Item>();
-        maxTemp = _maxTemp;
+    protected Player(int maxTemp, Controller controller){
+        inventory = new ArrayList<>();
+        this.maxTemp = maxTemp;
         currentTemp = maxTemp;
         isInWater = false;
         this.controller = controller;
     }
-
-    //----------------WARNING-----------------
-    //NOT IN DOCS
-    //TODO Fix the doc
 
     /**
      * Returns the Entity's inventory
@@ -39,11 +35,6 @@ public abstract class Player extends Entity{
     public List<Item> getInventory() {
         return inventory;
     }
-
-    //----------------WARNING----------------
-    //CHANGED ARG FROM VOID TO INT
-    //@returns The index of the added item
-    //TODO Fix doc
 
     /**
      * Add new item to the inventory
@@ -88,7 +79,7 @@ public abstract class Player extends Entity{
      * @author Dorina
      */
     public boolean savingPlayers(){
-        boolean succ = false;
+        var succ = false;
         Collection<Tile> neighbours = currentTile.getNeighbours();
         for (Tile neighbour: neighbours) {
             ArrayList<Entity> entities = new ArrayList<>(neighbour.getEntities());
@@ -107,7 +98,7 @@ public abstract class Player extends Entity{
     @Override
     public void move(int direction) {
         if(isInWater) return;
-        Tile newTile = currentTile.getNeighbour(direction);
+        var newTile = currentTile.getNeighbour(direction);
         currentTile.removeEntity(this);
         newTile.acceptEntity(this);
     }
@@ -170,6 +161,10 @@ public abstract class Player extends Entity{
             return true;
         }
         return false;
+    }
+
+    public int getCurrentTemp(){
+        return currentTemp;
     }
 
 

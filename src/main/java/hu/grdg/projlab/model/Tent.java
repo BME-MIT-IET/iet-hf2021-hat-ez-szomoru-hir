@@ -13,7 +13,7 @@ public class Tent extends Item {
      * @author Dani
      */
     public boolean useItem(){
-        Tile tile = owner.getCurrentTile();
+        var tile = owner.getCurrentTile();
         boolean res = tile.buildTent();
         if(res) {
             RemoveTent.getInstance().addTent(this);
@@ -27,7 +27,7 @@ public class Tent extends Item {
     public void decreaseLife() {
         life--;
         if(life == 0) {
-            Tile tile = owner.getCurrentTile();
+            var tile = owner.getCurrentTile();
             tile.removeTent();
             RemoveTent.getInstance().removeTent(this);
         }
