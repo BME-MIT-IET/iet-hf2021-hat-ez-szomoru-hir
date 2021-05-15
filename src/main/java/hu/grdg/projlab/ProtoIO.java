@@ -101,6 +101,6 @@ public class ProtoIO {
     public static void outputf(String message, Object... args) {
 
         if (!silent)
-            System.out.printf(message + "\n", args);
+            System.out.printf(String.format("%s%n", message), args);
     }
 }
