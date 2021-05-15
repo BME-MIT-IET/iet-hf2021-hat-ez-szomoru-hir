@@ -194,5 +194,12 @@ public abstract class Tile {
         hasTent=false;
     }
 
+    public boolean hasIgloo() {
+        return hasIgloo;
+    }
+
+    public int getSnowLayers() {
+        return snowLayers;
+    }
 }
 

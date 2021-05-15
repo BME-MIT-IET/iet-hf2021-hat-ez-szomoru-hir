@@ -172,6 +172,10 @@ public abstract class Player extends Entity{
         return false;
     }
 
+    public int getCurrentTemp(){
+        return currentTemp;
+    }
+
 
 
 }
