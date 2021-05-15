@@ -45,7 +45,7 @@ public class Controller {
      * @author Dorina
      */
     public boolean checkWin(){
-        Tile tile = players.get(0).getCurrentTile();
+        var tile = players.get(0).getCurrentTile();
         for (Player player: players) {
             if(!tile.equals(player.getCurrentTile())) return false;
         }
