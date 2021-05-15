@@ -1,19 +1,13 @@
 package hu.grdg.projlab.model;
 
 public class SnowStorm implements TurnBasedEvent{
-    private static SnowStorm instance = null;
+    private static final SnowStorm instance = new SnowStorm();
+
     public static SnowStorm getInstance() {
-
-        //TODO Replace with controller initialization
-        if(instance == null)
-            new SnowStorm();
-
         return instance;
     }
 
-    public SnowStorm() {
-        instance = this;
-    }
+    private SnowStorm() { }
 
     @Override
     public void doEvent(Level lvl, boolean fullTurn) {
