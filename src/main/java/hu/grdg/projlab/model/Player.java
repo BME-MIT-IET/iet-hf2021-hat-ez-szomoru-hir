@@ -79,7 +79,7 @@ public abstract class Player extends Entity{
      * @author Dorina
      */
     public boolean savingPlayers(){
-        boolean succ = false;
+        var succ = false;
         Collection<Tile> neighbours = currentTile.getNeighbours();
         for (Tile neighbour: neighbours) {
             ArrayList<Entity> entities = new ArrayList<>(neighbour.getEntities());
@@ -98,7 +98,7 @@ public abstract class Player extends Entity{
     @Override
     public void move(int direction) {
         if(isInWater) return;
-        Tile newTile = currentTile.getNeighbour(direction);
+        var newTile = currentTile.getNeighbour(direction);
         currentTile.removeEntity(this);
         newTile.acceptEntity(this);
     }
