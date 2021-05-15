@@ -33,7 +33,7 @@ public class ProtoInputSystem {
      * Starts command parsing, it returns when EOF occurs on System.in
      */
     public void start() {
-        ProtoRuntime gameState = new ProtoRuntime();
+        var gameState = new ProtoRuntime();
         BufferedReader reader = null;
         try {
             reader = new BufferedReader(new InputStreamReader(System.in));
@@ -43,7 +43,7 @@ public class ProtoInputSystem {
                 String command = commandParts[0];
 
                 if(commands.containsKey(command)) {
-                    Command c = commands.get(command);
+                    var c = commands.get(command);
                     if(commandParts.length < c.getParamCount() + 1) {
                         ProtoIO.outputf("Command error: The command requires %d arguments but only %d were provided", c.getParamCount(), commandParts.length - 1);
                     }else {
