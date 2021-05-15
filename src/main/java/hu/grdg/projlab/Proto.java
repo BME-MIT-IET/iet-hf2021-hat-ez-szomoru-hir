@@ -10,7 +10,7 @@ public class Proto {
         TagIO.registerTags();
 
 
-        ProtoInputSystem pis = new ProtoInputSystem();
+        var pis = new ProtoInputSystem();
 
         //Register commands here
         pis.registerCommand("ClearGame", new ClearGameCommand());
