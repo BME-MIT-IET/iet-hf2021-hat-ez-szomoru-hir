@@ -16,10 +16,6 @@ public class UseItemCommand extends Command {
         var pName = getStringArg(inputParams);
         var slot = getIntArg(inputParams);
 
-        int arg = -1;
-        if(!inputParams.isEmpty() && !inputParams.get(0).equals("null"))
-            arg = getIntArg(inputParams);
-
         Player p;
         if((p = getPlayer(pName,state)) == null) {
             ProtoIO.output(ProtoIO.OutputMessages.ERR_PLAYER_NOT_FOUND);
