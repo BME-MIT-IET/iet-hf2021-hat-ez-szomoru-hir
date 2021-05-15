@@ -78,7 +78,7 @@ public class SavedGame {
         //Load tile contents
         for(var i = 0; i < tileNumber; i++) {
             TileClass tc = (TileClass) TagIO.readTag(reader).getData();
-            state.addTile(tc.name, tc.tile);
+            state.addTile(tc.getName(), tc.getTile());
         }
 
         //Load connections

@@ -43,8 +43,8 @@ public class TileTag extends Tag<TileClass> {
             t.buildTent();
 
         var tc = new TileClass();
-        tc.name = name;
-        tc.tile = t;
+        tc.setName(name);
+        tc.setTile(t);
 
         return tc;
     }
