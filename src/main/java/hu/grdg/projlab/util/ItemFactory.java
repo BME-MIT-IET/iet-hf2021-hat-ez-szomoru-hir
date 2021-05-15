@@ -5,33 +5,33 @@ import hu.grdg.projlab.model.*;
 public class ItemFactory {
     private ItemFactory() { }
 
-    protected static Item initializeItem(ProtoRuntime state, String type) {
-        Item itm = null;
+    public static Item createItem(ProtoRuntime state, String type) {
+        Item item = null;
         switch (type) {
             case "Rope":
-                itm = new Rope();
+                item = new Rope();
                 break;
             case "DivingSuit":
-                itm = new DivingSuit();
+                item = new DivingSuit();
                 break;
             case "Food":
-                itm = new Food();
+                item = new Food();
                 break;
             case "Shovel":
-                itm = new Shovel();
+                item = new Shovel();
                 break;
             case "BreakableShovel":
-                itm = new BreakableShovel();
+                item = new BreakableShovel();
                 break;
             case "Tent":
-                itm = new Tent();
+                item = new Tent();
                 break;
             case "RocketPart":
-                itm = new RocketPart(state.getController());
+                item = new RocketPart(state.getController());
                 break;
             default:
                 break;
         }
-        return itm;
+        return item;
     }
 }
