@@ -17,39 +17,39 @@ public class EntityTag extends Tag<EntityClass> {
         String life = parts[3];
         String inv = parts[4];
 
-        Entity e = null;
+        Entity entity;
         if(type.equals("polar")) {
-            e = new PolarBear();
+            entity = new PolarBear();
         }else {
-            Player p = null;
+            Player player;
             switch (type) {
                 case "scientist":
-                    p = new Scientist(null);
+                    player = new Scientist(null);
                     break;
                 case "eskimo":
-                    p = new Eskimo(null);
+                    player = new Eskimo(null);
                     break;
                 default:
                     throw new GameLoadException("Invalid entity type");
             }
-            p.setCurrentTemp(Integer.parseInt(life));
+            player.setCurrentTemp(Integer.parseInt(life));
 
-            String[] itms = inv.split(",");
-            for(String item : itms) {
-                var itm = TileTag.createItem(item);
-                if(itm != null)
-                    p.addItem(itm);
+            String[] itemNames = inv.split(",");
+            for(String itemName : itemNames) {
+                var item = TileTag.createItem(itemName);
+                if(item != null)
+                    player.addItem(item);
             }
 
-            e = p;
+            entity = player;
         }
-        var ec = new EntityClass();
-        ec.setEntity(e);
-        ec.setName(name);
-        ec.setTile(tile);
+        var entityClass = new EntityClass();
+        entityClass.setEntity(entity);
+        entityClass.setName(name);
+        entityClass.setTile(tile);
 
 
-        return ec;
+        return entityClass;
     }
 
     @Override
