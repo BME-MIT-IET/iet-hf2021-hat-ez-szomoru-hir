@@ -20,7 +20,7 @@ public abstract class Player extends Entity{
      * @author Geri, Dorina
      */
     public Player(int maxTemp, Controller controller){
-        inventory = new ArrayList<Item>();
+        inventory = new ArrayList<>();
         this.maxTemp = maxTemp;
         currentTemp = maxTemp;
         isInWater = false;
