@@ -29,7 +29,6 @@ public class UseItemCommand extends Command {
             else
                 ProtoIO.output(ProtoIO.OutputMessages.USEITEM_ERR_ITEMFAIL);
         } catch (Exception e) {
-            e.printStackTrace();
             ProtoIO.output(ProtoIO.OutputMessages.USEITEM_ERR_NOITEM);
         }
 

@@ -54,7 +54,7 @@ public class ProtoInputSystem {
                 }
             }
         } catch (IOException e) {
-            e.printStackTrace();
+            ProtoIO.output("Error occured :(");
         } finally {
             try {
                 reader.close();
