@@ -11,13 +11,10 @@ public abstract class Tile {
     private boolean hasTent;
     private int snowLayers;
     private Item frozenItem;
-    private HashMap<Integer,Tile> neighbours;
-    protected ArrayList<Entity> entities;
+    private HashMap<Integer,Tile> neighbours = new HashMap<>();
+    protected ArrayList<Entity> entities = new ArrayList<>();
 
-    public Tile(){
-        neighbours= new HashMap<>();
-        entities = new ArrayList<>();
-    }
+    protected Tile(){ }
 
     /**
      *Returns the Tile at the given direction
