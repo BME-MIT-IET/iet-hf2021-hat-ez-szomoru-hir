@@ -9,6 +9,10 @@ Majd GitHub-on létrehoztuk a gradle action-t, hogy push-olás és pull request 
 ![](figure/gradleyaml1.png)
 ![](figure/gradleyaml2.png)
 
+Build lefutása:
+
+![](figure/ci_running.png)
+
 Az első SonarQube futtatás eredménye az alábbi volt:
 
 ![](figure/sonarcloud_overview.png)
