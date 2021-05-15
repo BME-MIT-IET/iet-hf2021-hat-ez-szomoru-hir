@@ -11,4 +11,4 @@
 - létrejön egy iglu a tile-on
 
 ## Result
-![](images/build_iglu_test.png)
+![](images/test_build_iglu_result.png)

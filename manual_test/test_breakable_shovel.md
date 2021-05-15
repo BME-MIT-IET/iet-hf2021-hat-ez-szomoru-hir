@@ -13,4 +13,4 @@
 - csak háromszor tud havat eltakarítani
 
 ## Result
-![](images/breakable_shovel.png)
+![](images/test_breakable_shovel_result.png)
