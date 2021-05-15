@@ -24,7 +24,7 @@ public class RocketStepDefs {
         for(int i = 0; i < number; i++){
             part = new RocketPart(c);
             scientist.addItem(part);
-            part.setFuckinOwner(scientist);
+            part.setOwner(scientist);
         }
         for(int i = number; i < 3; i++){
             part = new RocketPart(c);

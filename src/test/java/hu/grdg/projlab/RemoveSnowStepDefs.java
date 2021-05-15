@@ -52,14 +52,14 @@ public class RemoveSnowStepDefs {
     @And("player has shovel")
     public void playerHasShovel() {
         var shovel = new Shovel();
-        shovel.setFuckinOwner(player);
+        shovel.setOwner(player);
         player.addItem(shovel);
     }
 
     @And("player has breakable shovel")
     public void playerHasBreakableShovel() {
         var shovel = new BreakableShovel();
-        shovel.setFuckinOwner(player);
+        shovel.setOwner(player);
         player.addItem(shovel);
     }
 

@@ -29,7 +29,7 @@ public class FoodStepDefs {
         player.setCurrentTemp(temp);
         var food = new Food();
         player.addItem(food);
-        food.setFuckinOwner(player);
+        food.setOwner(player);
     }
 
     @When("player eat food")
