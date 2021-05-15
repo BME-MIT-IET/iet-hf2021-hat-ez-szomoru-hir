@@ -4,5 +4,13 @@ public class Direction {
     private Direction() {
     }
 
-    public static int direction;
+    private static int direction;
+
+    public static int getDirection() {
+        return direction;
+    }
+
+    public static void setDirection(int direction) {
+        Direction.direction = direction;
+    }
 }

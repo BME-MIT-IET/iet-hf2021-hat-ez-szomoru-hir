@@ -32,7 +32,7 @@ public class SpecialAbilityCommand extends Command {
             throw new CommandException("Required int parameter was not provided");
         }
 
-        Direction.direction = dir;
+        Direction.setDirection(dir);
 
         boolean didIt = p.specialAbility();
         if(!didIt)
