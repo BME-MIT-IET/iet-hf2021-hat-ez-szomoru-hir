@@ -15,8 +15,8 @@ public abstract class Tile {
     protected ArrayList<Entity> entities;
 
     public Tile(){
-        neighbours= new HashMap<Integer, Tile>();
-        entities = new ArrayList<Entity>();
+        neighbours= new HashMap<>();
+        entities = new ArrayList<>();
     }
 
     /**
