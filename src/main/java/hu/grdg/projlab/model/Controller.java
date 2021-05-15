@@ -9,13 +9,10 @@ import java.util.ArrayList;
  * It schedules the turns, events. It checks the win and lose conditions.
  */
 public class Controller {
-    private ArrayList<TurnBasedEvent> events;
-    private Level level;
     private ArrayList<Player> players;
     ArrayList<RocketPart> rocketParts;
 
     public Controller(){
-        events = new ArrayList<>();
         players = new ArrayList<>();
         rocketParts = new ArrayList<>();
     }
