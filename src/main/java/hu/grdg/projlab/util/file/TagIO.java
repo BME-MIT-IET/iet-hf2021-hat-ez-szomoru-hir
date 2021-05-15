@@ -45,8 +45,7 @@ public class TagIO {
             String value = line.split("\\|")[1].replace(">","").trim();
 
             if(generators.containsKey(type)) {
-                Tag<T> tag = generators.get(type).apply(value);
-                return tag;
+                return (Tag<T>) generators.get(type).apply(value);
             }else {
                 throw new GameLoadException("Invalid tag type");
             }
