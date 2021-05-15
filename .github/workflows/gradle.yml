@@ -5,9 +5,9 @@ name: Java CI with Gradle
 
 on:
   push:
-    branches: [ main, MCR ]
+    branches: [ main, MCR, CI ]
   pull_request:
-    branches: [ main, MCR ]
+    branches: [ main, MCR, CI ]
 
 jobs:
   build:
@@ -42,3 +42,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: ./gradlew build sonarqube --info
+    - name: Run Tests with Gradle
+      run: ./gradlew test
