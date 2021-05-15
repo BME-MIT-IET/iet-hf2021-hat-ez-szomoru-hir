@@ -17,7 +17,7 @@ public class SnowStorm implements TurnBasedEvent{
 
     @Override
     public void doEvent(Level lvl, boolean fullTurn) {
-
+        //Do nothing, Snow storm does not create an event
     }
 
     /**

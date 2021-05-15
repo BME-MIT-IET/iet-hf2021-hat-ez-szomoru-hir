@@ -1,5 +1,5 @@
 package hu.grdg.projlab.model;
 
-public class Level {
+public interface Level {
 
 }

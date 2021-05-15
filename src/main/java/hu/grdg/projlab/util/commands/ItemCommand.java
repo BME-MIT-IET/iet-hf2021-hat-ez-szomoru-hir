@@ -19,32 +19,7 @@ public class ItemCommand extends Command {
             return;
         }
 
-        Item itm = null;
-        switch (type) {
-            case "Rope":
-                itm = new Rope();
-                break;
-            case "DivingSuit":
-                itm = new DivingSuit();
-                break;
-            case "Food":
-                itm = new Food();
-                break;
-            case "Shovel":
-                itm = new Shovel();
-                break;
-            case "BreakableShovel":
-                itm = new BreakableShovel();
-                break;
-            case "Tent":
-                itm = new Tent();
-                break;
-            case "RocketPart":
-                itm = new RocketPart(state.getController());
-                break;
-            default:
-                break;
-        }
+        var itm = initializeItem(state, type);
         t.setFrozenItem(itm);
         ProtoIO.output(ProtoIO.OutputMessages.ITEM_OUT);
     }

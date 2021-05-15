@@ -4,5 +4,13 @@ public class Direction {
     private Direction() {
     }
 
-    public static int direction;
+    private static int code;
+
+    public static int getCode() {
+        return code;
+    }
+
+    public static void setCode(int code) {
+        Direction.code = code;
+    }
 }

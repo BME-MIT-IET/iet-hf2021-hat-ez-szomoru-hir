@@ -2,11 +2,9 @@ package hu.grdg.projlab;
 
 import hu.grdg.projlab.model.*;
 import io.cucumber.java.ParameterType;
-import io.cucumber.java.bs.I;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import hu.grdg.projlab.IglooStepDefs.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -36,7 +34,7 @@ public class ScanLimitStepDefs {
 
     @When("scientist scan tile")
     public void scientistScanTile() {
-        Direction.direction = 1;
+        Direction.setCode(1);
         result = player.getCurrentTile().getNeighbour(1).scanLimit();
     }
 

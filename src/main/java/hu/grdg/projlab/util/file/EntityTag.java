@@ -41,9 +41,9 @@ public class EntityTag extends Tag<EntityClass> {
             e = p;
         }
         var ec = new EntityClass();
-        ec.entity = e;
-        ec.name = name;
-        ec.tile = tile;
+        ec.setEntity(e);
+        ec.setName(name);
+        ec.setTile(tile);
 
 
         return ec;

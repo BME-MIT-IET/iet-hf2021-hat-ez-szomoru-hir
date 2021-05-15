@@ -78,7 +78,7 @@ public class SavedGame {
         //Load tile contents
         for(var i = 0; i < tileNumber; i++) {
             TileClass tc = (TileClass) TagIO.readTag(reader).getData();
-            state.addTile(tc.name, tc.tile);
+            state.addTile(tc.getName(), tc.getTile());
         }
 
         //Load connections
@@ -92,9 +92,9 @@ public class SavedGame {
 
         for(var i = 0; i < entityCount; i++) {
             EntityClass ec = (EntityClass) TagIO.readTag(reader).getData();
-            state.addEntity(ec.name, ec.entity);
-            var t = state.getTile(ec.tile);
-            t.acceptEntity(ec.entity);
+            state.addEntity(ec.getName(), ec.getEntity());
+            var t = state.getTile(ec.getTile());
+            t.acceptEntity(ec.getEntity());
         }
 
 
