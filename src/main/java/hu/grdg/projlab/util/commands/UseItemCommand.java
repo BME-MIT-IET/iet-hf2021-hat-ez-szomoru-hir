@@ -13,8 +13,8 @@ import java.util.List;
 public class UseItemCommand extends Command {
     @Override
     public void runCommand(ProtoRuntime state, List<String> inputParams) throws CommandException {
-        String pName = getStringArg(inputParams);
-        int slot = getIntArg(inputParams);
+        var pName = getStringArg(inputParams);
+        var slot = getIntArg(inputParams);
 
         int arg = -1;
         if(!inputParams.isEmpty() && !inputParams.get(0).equals("null"))
@@ -27,7 +27,7 @@ public class UseItemCommand extends Command {
         }
 
         try {
-            Item item = p.getInventory().get(slot - 1);
+            var item = p.getInventory().get(slot - 1);
             boolean succ = item.useItem();
             if(succ)
                 ProtoIO.output(ProtoIO.OutputMessages.USEITEM_OUT);
