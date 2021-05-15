@@ -26,7 +26,9 @@ public class SavedGame {
     public static final boolean DEBUG_MODE = true;
 
 
-    private int tile_number, connection_count, entitycount;
+    private int tile_number;
+    private int connection_count;
+    private int entitycount;
     private ProtoRuntime state;
 
 
