@@ -2,7 +2,7 @@
 
 ## Arrange
 - egy stabil és egy instabil IceTile egymás mellett
-- a stabil IceTile 1 embert bír el maximum
+- az instabil IceTile 1 embert bír el maximum
 - egy Eskimo a stabil IceTile-on
 - egy Scientist az instabil IceTile-on
 
