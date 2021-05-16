@@ -4,6 +4,7 @@ import hu.grdg.projlab.ProtoIO;
 import hu.grdg.projlab.model.*;
 import hu.grdg.projlab.util.Command;
 import hu.grdg.projlab.util.CommandException;
+import hu.grdg.projlab.util.ItemFactory;
 import hu.grdg.projlab.util.ProtoRuntime;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class ItemCommand extends Command {
             return;
         }
 
-        var itm = initializeItem(state, type);
+        var itm = ItemFactory.createItem(state, type);
         t.setFrozenItem(itm);
         ProtoIO.output(ProtoIO.OutputMessages.ITEM_OUT);
     }

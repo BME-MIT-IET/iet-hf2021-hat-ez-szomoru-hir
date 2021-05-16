@@ -21,14 +21,18 @@ public class TileTag extends Tag<TileClass> {
         String name = data[4];
 
         Tile t;
-        if(type.equals("h")) {
-            t = new HoleTile();
-        }else if(type.equals("u")) {
-            t = new UnstableIceTile(Integer.parseInt(limit));
-        }else if(type.equals("i")) {
-            t = new IceTile();
-        }else {
-            throw new GameLoadException("Invalid tile type");
+        switch (type) {
+            case "h":
+                t = new HoleTile();
+                break;
+            case "u":
+                t = new UnstableIceTile(Integer.parseInt(limit));
+                break;
+            case "i":
+                t = new IceTile();
+                break;
+            default:
+                throw new GameLoadException("Invalid tile type");
         }
 
         t.addSnowLayer(Integer.parseInt(snow));
