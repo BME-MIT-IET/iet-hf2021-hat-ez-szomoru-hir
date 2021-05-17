@@ -43,4 +43,4 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: ./gradlew build sonarqube --info
     - name: Run Tests with Gradle
-      run: ./gradlew test
+      run: ./gradlew cucumber
