@@ -19,3 +19,6 @@ Az első SonarQube futtatás eredménye az alábbi volt:
 
 ![](figure/sonacloud_issues.png)
 
+A CI-ba bekerült, hogy a cucumberben elkészített teszteket automatikusan kiértékelje:
+
+![](figure/run_cucumbers_ci.png)
